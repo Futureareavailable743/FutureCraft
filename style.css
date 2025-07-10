@@ -1,0 +1,48 @@
+header {
+    background-color: #12151c;
+        
+}
+
+.logo{
+    margin: 0px;
+    height: 50px;
+    border-radius: 50%;
+}
+body{
+    font-family: "poppins", sans-serif;
+    background-color: #0f1117;
+    color: white;
+    font-weight: bold;
+    
+    display:flex;
+    flex-direction: column;
+}
+
+
+span{
+    color: rgba(255, 217, 0, 0.7)
+
+}
+.fs-4{
+    font-family: codr;
+}
+
+.icon-square {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.75rem;
+}
+.d-block{
+    border-radius: 20px;
+    padding: 5px;
+    margin: 10px;
+    border: 10px solid #0f111754;
+}
+footer {
+        text-align: center;
+        padding: 20px;
+        background-color: #12151c;
+        font-size: 0.9em;
+        color:aliceblue ;
+        
+      }
