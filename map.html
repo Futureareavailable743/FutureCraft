@@ -2,19 +2,186 @@
 
 
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<html lang="en" data-bs-theme="dark">
 
-    <style>
-    
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FutureCraft</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+
+  <style>
+       
+.floating-whatsapp, .floating-instagram {
+            position: fixed;
+            z-index: 999; /* Ensure it's on top */
+            width: 60px; /* Adjust size */
+            height: 60px;
+            border-radius: 50%; /* Make it round */
+            text-align: center;
+            line-height: 60px;
+            text-decoration: none;
+            color: white;
+        }
+        .floating-whatsapp {
+            left: 20px; /* Position from the left */
+            bottom: 20px; /* Position from the bottom */
+            background-color: #25D366; /* WhatsApp green */
+        }
+        .floating-instagram {
+            right: 20px; /* Position from the right */
+            bottom: 20px; /* Position from the bottom */
+            background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); /* Instagram gradient */
+        }
+        .img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+        }
+
+
+body{
+    font-family: Arial, sans-serif; background-image: url(./img/file_00000000a3ec6246aba6656f9e91a50a.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.container{ width: 100%;
+    overflow: hidden;
+
+}
+.container iframe{
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
     </style>
+
+
+
 </head>
+
+
 <body>
-    <div >
+
+
+    <!--Navbar-->
+<section>
+<nav class="navbar navbar-dark bg-dark fixed-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#"><span class="text-warning">FutureCraft</span></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">FutureCraft</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./about.html">About Us</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Dropdown
+            </a>
+            <ul class="dropdown-menu dropdown-menu-dark">
+              <li><a class="dropdown-item" href="./Services.html">Services</a></li>
+              <li><a class="dropdown-item" href="./contact.html">📞Contact</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="./map.html">map</a></li>
+            </ul>
+          </li>
+        </ul>
+        <form class="d-flex mt-3" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+          <button class="btn btn-success" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</nav>
+</section>
+
+
+
+
+
+    <div class="container mt-5" >
     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15854.880983727453!2d3.380167981410522!3d6.556956762469261!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b8d7e0016f285%3A0x8d7bbd27a2060c4f!2sGbagada%2C%20Lagos%20105102%2C%20Lagos!5e0!3m2!1sen!2sng!4v1752076893846!5m2!1sen!2sng" width="900" height="950" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
 </div>
+
+
+<!-- FOOTER --> 
+<hr class="featurette-divider"> 
+
+
+            <footer class="container"> <p class="float-end"><a href="#">Back to top</a></p> 
+              <p> <span class="text-warning">@FutureCraft ·</span> <a href="#">Privacy</a> · <a href="#">Terms</a></p> </footer> 
+   
+
+<div class="container bg-warning">
+   <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 border-top"> 
+    <div class="col mb-3">
+       <a href="/" class="d-flex align-items-center mb-3 link-body-emphasis text-decoration-none" aria-label="Bootstrap">
+         <img src="./img/luca-bravo-9l_326FISzk-unsplash (1).jpg" class="bi me-2" width="40" height="32" aria-hidden="true" style="border-radius: 5px;"></svg> </a> 
+         <p class="text-secondary font-bold">FUTURECRAFT</p>
+        </div> <div class="col mb-3"></div>
+         <div class="col mb-3"> 
+          <h5>Section</h5> 
+          <ul class="nav flex-column">
+             <li class="nav-item mb-2">
+              <a href="./index.html" class="nav-link p-0 text-body-secondary">Home</a></li> 
+              <li class="nav-item mb-2">
+                <a href="./Services.html" class="nav-link p-0 text-body-secondary">Features</a>
+              </li> 
+              <li class="nav-item mb-2">
+                <a href="https://wa.me/message/BXPFJE3YCBVXF1" class="nav-link p-0 text-body-secondary">contact</a></li> 
+                <li class="nav-item mb-2">
+                  <a href="./FAQs.html" class="nav-link p-0 text-body-secondary">FAQs</a></li>
+                   <li class="nav-item mb-2"><a href="./about.html" class="nav-link p-0 text-body-secondary">About</a></li>
+                   </ul> </div> <div class="col mb-3"> <h5>Section</h5> 
+                    <ul class="nav flex-column"> <li class="nav-item mb-2"><a href="./index.html" class="nav-link p-0 text-body-secondary">Home</a></li> 
+                      <li class="nav-item mb-2"><a href="./Services.html" class="nav-link p-0 text-body-secondary">Features</a></li> <li class="nav-item mb-2">
+                        <a href="https://wa.me/message/BXPFJE3YCBVXF1" class="nav-link p-0 text-body-secondary">contact</a></li>
+                         <li class="nav-item mb-2"><a href="./FAQs.html" class="nav-link p-0 text-body-secondary">FAQs</a></li> 
+                         <li class="nav-item mb-2"><a href="./about.html" class="nav-link p-0 text-body-secondary">About</a></li>
+                         </ul> </div> <div class="col mb-3"> 
+                          <h5>Section</h5>
+                           <ul class="nav flex-column"> 
+                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li> <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Features</a></li> <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">contact</a></li> <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li> <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About</a></li> </ul> </div> </footer> </div>
+
+
+      </section>
+
+
+
+
+
+
+ <a href="https://wa.me/message/BXPFJE3YCBVXF1" class="floating-whatsapp" target="_blank">
+            <img class="img"  src="./img/whatsapp.jpg" alt="WhatsApp">
+        </a>
+        <a href="https://www.instagram.com/futurecraft.dev/" class="floating-instagram" target="_blank">
+            <img class="img" src="./img/IG.jpg" alt="Instagram" >
+        </a>
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+
 </body>
 </html>

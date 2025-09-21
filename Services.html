@@ -1,208 +1,457 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FutureCraft</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
 
 <html>
   <head>
     <style>
-      body{
-        margin: 0;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        background-color: #0f1117;
-        color: #ccc;
-      }
-      header{
-        background-color: #12151c;
-        padding: 20px 40px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-      }
-      header img{
-        height: 50px;
-      }
-      nav a{
-        color: #fff;
-        text-decoration: none;
-        margin: 0 15px;
-        font-weight: bold;
-      }
-      .hero {
-        padding: 100px 40px;
-        text-align: center;
-      }
-      .hero h1{
-        font-size: 3em;
-        margin-bottom: 10px;
-      }
-      .hero p{
-        font-size: 1.3em;
-        color: #ccc;
-      }
-      .services .about{
-        padding: 60px 40px;
-        max-width: 900px;
-        margin: auto;
-      }
-      .services h2, .about h2{
-         font-size: 2em;
-         margin-bottom: 20px;
-      }
-      .service-item{
-        margin-bottom: 30px;
-      }
-      .service-item h3{
-        margin: 0 0 5px;
-        color: #1cc8ee;
-      }
-      footer {
-        text-align: center;
-        padding: 20px;
-        background-color: #12151c;
-        font-size: 0.9em;
-        color: #aaa;
-      }
+      
+              
+.floating-whatsapp, .floating-instagram {
+            position: fixed;
+            z-index: 999; /* Ensure it's on top */
+            width: 60px; /* Adjust size */
+            height: 60px;
+            border-radius: 50%; /* Make it round */
+            text-align: center;
+            line-height: 60px;
+            text-decoration: none;
+            color: white;
+        }
+        .floating-whatsapp {
+            left: 20px; /* Position from the left */
+            bottom: 20px; /* Position from the bottom */
+            background-color: #25D366; /* WhatsApp green */
+        }
+        .floating-instagram {
+            right: 20px; /* Position from the right */
+            bottom: 20px; /* Position from the bottom */
+            background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); /* Instagram gradient */
+        }
+        .img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+        }
+
+
+body{
+    font-family: Arial, sans-serif; background-image: url(./img/file_00000000a3ec6246aba6656f9e91a50a.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
     </style>
   </head>
 </html>
 
-<header>
-    <img src="./img/file_00000000a3ec6246aba6656f9e91a50a.png" height="200" width="200" alt="FutureCraft Logo" />
-    <nav>
-        <a href="./Services.html">Services</a>
-        <a href="./about.html">About</a>
-        <a href="./contact.html">Contact</a>
-         <a href="./index.html">Home</a>
-    </nav>
-</header>
-<div>
-<section class="hero">
-    <h1> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-laptop" viewBox="0 0 16 16">
-  <path d="M13.5 3a.5.5 0 0 1 .5.5V11H2V3.5a.5.5 0 0 1 .5-.5zm-11-1A1.5 1.5 0 0 0 1 3.5V12h14V3.5A1.5 1.5 0 0 0 13.5 2zM0 12.5h16a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 12.5"/>
-</svg> Crafting Tomorrow's Web, Today</h1>
-    <p>Custom websites designed to grow your brand</p>
+<section>
+   
+    <nav class="navbar navbar-dark bg-dark fixed-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#"><span class="text-warning">FutureCraft</span></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">FutureCraft</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./about.html">About Us</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Dropdown
+            </a>
+            <ul class="dropdown-menu dropdown-menu-dark">
+              <li><a class="dropdown-item" href="./FAQs.html">FAQS</a></li>
+              <li><a class="dropdown-item" href="./contact.html">📞Contact</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="./map.html">map</a></li>
+            </ul>
+          </li>
+        </ul>
+        <form class="d-flex mt-3" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+          <button class="btn btn-success" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</nav>
+  </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section>
+
+<div style="text-align: center;" class="mt-3" >
+
+    <h1 class="text-5xl font-bold ">   <img class="d-block mx-auto mb-4" src="./img/luca-bravo-9l_326FISzk-unsplash (1).jpg" alt="" width="72" height="57" style="border-radius: 5px;"> 
+    
+Crafting <span class="text-warning">Tomorrow's</span> Web, Today</h1>
+    
+
+<p>Custom websites designed to grow your brand</p>
+
+</div>
 </section>
-<section class="services" id="services ">
-  <div class="container">
-<h2> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+
+
+
+
+
+
+<!--services-->
+
+<section >
+<div class="container mt-3">
+<div class="p-5 text-center bg-body-tertiary rounded-3"> <h1 class="text-body-emphasis"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                 class="bi bi-google-play mb-1" viewBox="0 0 16 16">
 <path
                   d="M14.222 9.374c1.037-.61 1.037-2.137 0-2.748L11.528 5.04 8.32 8l3.207 2.96 2.694-1.586Zm-3.595 2.116L7.583 8.68 1.03 14.73c.201 1.029 1.36 1.61 2.303 1.055l7.294-4.295ZM1 13.396V2.603L6.846 8 1 13.396ZM1.03 1.27l6.553 6.05 3.044-2.81L3.333.215C2.39-.341 1.231.24 1.03 1.27Z" />
-</svg> What I Offer</h2>
-<p>At FutureCraft, I provide personalized web development Service that bring your ideas to lie online.  Whether you're just starting out or looking to upgrade your
-    your Digital presence, I've got you covered.
-</p>
+</svg>   Our Service</h1> 
+    <p class="lead">
+At FutureCraft, we provide personalized Web development<code> Service </code>that bring your ideas to life online.  Whether you're just starting out or looking to upgrade your
+    your Digital presence, we've got you covered.
+
+</p> 
 </div>
 
-<div>
-<h1><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                class="bi bi-apple mb-1" viewBox="0 0 16 16">
-<path
-                  d="M11.182.008C11.148-.03 9.923.023 8.857 1.18c-1.066 1.156-.902 2.482-.878 2.516.024.034 1.52.087 2.475-1.258.955-1.345.762-2.391.728-2.43Zm3.314 11.733c-.048-.096-2.325-1.234-2.113-3.422.212-2.189 1.675-2.789 1.698-2.854.023-.065-.597-.79-1.254-1.157a3.692 3.692 0 0 0-1.563-.434c-.108-.003-.483-.095-1.254.116-.508.139-1.653.589-1.968.607-.316.018-1.256-.522-2.267-.665-.647-.125-1.333.131-1.824.328-.49.196-1.422.754-2.074 2.237-.652 1.482-.311 3.83-.067 4.56.244.729.625 1.924 1.273 2.796.576.984 1.34 1.667 1.659 1.899.319.232 1.219.386 1.843.067.502-.308 1.408-.485 1.766-.472.357.013 1.061.154 1.782.539.571.197 1.111.115 1.652-.105.541-.221 1.324-1.059 2.238-2.758.347-.79.505-1.217.473-1.282Z" />
-<path
-                  d="M11.182.008C11.148-.03 9.923.023 8.857 1.18c-1.066 1.156-.902 2.482-.878 2.516.024.034 1.52.087 2.475-1.258.955-1.345.762-2.391.728-2.43Zm3.314 11.733c-.048-.096-2.325-1.234-2.113-3.422.212-2.189 1.675-2.789 1.698-2.854.023-.065-.597-.79-1.254-1.157a3.692 3.692 0 0 0-1.563-.434c-.108-.003-.483-.095-1.254.116-.508.139-1.653.589-1.968.607-.316.018-1.256-.522-2.267-.665-.647-.125-1.333.131-1.824.328-.49.196-1.422.754-2.074 2.237-.652 1.482-.311 3.83-.067 4.56.244.729.625 1.924 1.273 2.796.576.984 1.34 1.667 1.659 1.899.319.232 1.219.386 1.843.067.502-.308 1.408-.485 1.766-.472.357.013 1.061.154 1.782.539.571.197 1.111.115 1.652-.105.541-.221 1.324-1.059 2.238-2.758.347-.79.505-1.217.473-1.282Z" />
-</svg> My Service</h1>
-</div>
-
-<div class="service-item">
- <h2><div class="feature col"> 
-      <div class="icon-square  feature-icon d-inline-flex align-items-center justify-content-center text-bg-light bg-gradient fs-2 mb-3">
-  <svg xmlns="http://www.w3.org/2000/svg" height="30" fill="currentColor" class="bi bi-check2-circle"
-              viewBox="0 0 16 16">
-<path
-                d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0z" />
-<path
-                d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l7-7z" />
-</svg>
-        Web Design & Development</h2></div>
- <p>Beautiful, fast, modern websites built with clean code and responsive layouts-fully tailored to your brand and vision.
+<div class="container">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        
+  <div class="col">
+    <div class="card h-100">
+      <img src="./img/web.jpg" class="card-img-top" alt="web design.">
+      <div class="card-body">
+        <h5 class="card-title text-warning "> Web Design & Development</h5>
+        <p class="card-text">Beautiful, fast, modern websites built with clean code and responsive layouts-fully tailored to your brand and vision.
  </p>
-</div>
-<div class="service-item">
- <h2><div class="feature col"> 
-      <div class="icon-square  feature-icon d-inline-flex align-items-center justify-content-center text-bg-light bg-gradient fs-2 mb-3">
-  <svg xmlns="http://www.w3.org/2000/svg" height="30" fill="currentColor" class="bi bi-check2-circle"
-              viewBox="0 0 16 16">
-<path
-                d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0z" />
-<path
-                d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l7-7z" />
-</svg>
-        Responsive Design</h2></div>
- <p> Your website will look perfect on desktops, tablets, and smartphones. no matter the screen size.
-      </p>
-</div>
-<div class="service-item">
-      <h2><div class="feature col"> 
-      <div class="icon-square  feature-icon d-inline-flex align-items-center justify-content-center text-bg-light bg-gradient fs-2 mb-3">
-  <svg xmlns="http://www.w3.org/2000/svg" height="30" fill="currentColor" class="bi bi-check2-circle"
-              viewBox="0 0 16 16">
-<path
-                d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0z" />
-<path
-                d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l7-7z" />
-</svg>
-        Landing Pages</h2></div>
-      <p>High-converting, single-page sites prefect for campaigns, product launches, or personal branding.
-      </p>
-</div>
-<div class="service-item">
-      <h2><div class="feature col"> 
-      <div class="icon-square  feature-icon d-inline-flex align-items-center justify-content-center text-bg-light bg-gradient fs-2 mb-3">
-  <svg xmlns="http://www.w3.org/2000/svg" height="30" fill="currentColor" class="bi bi-check2-circle"
-              viewBox="0 0 16 16">
-<path
-                d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0z" />
-<path
-                d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l7-7z" />
-</svg>
-        Website Maintenance </h2> </div>
-        <p>Ongoing support to keep your site secure, updated, and running smoothly.
-        </p>
-</div>
-<div class="service-item">
-        <h2><div class="feature col"> 
-      <div class="icon-square  feature-icon d-inline-flex align-items-center justify-content-center text-bg-light bg-gradient fs-2 mb-3">
-  <svg xmlns="http://www.w3.org/2000/svg" height="30" fill="currentColor" class="bi bi-check2-circle"
-              viewBox="0 0 16 16">
-<path
-                d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0z" />
-<path
-                d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l7-7z" />
-</svg>
-        Portfolio & Business Sites</h2></div>
-        <p>Custom portfolios for creatives, or professional websites for small
-            businesses and entrepreneurs.
-        </p>
-</div>
-<div class="service-item">
-     <h2><div class="feature col"> 
-      <div class="icon-square  feature-icon d-inline-flex align-items-center justify-content-center text-bg-light bg-gradient fs-2 mb-3">
-  <svg xmlns="http://www.w3.org/2000/svg" height="30" fill="currentColor" class="bi bi-check2-circle"
-              viewBox="0 0 16 16">
-<path
-                d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0z" />
-<path
-                d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l7-7z" />
-</svg>
-        Website Optimization</h2></div>
-     <p>Speed, SEO, and performance tuning to make sure your site loads fast and ranks higher.</p>
-</div>
-</div>
-</section>
-<div>
-<section class="about" id="about"><div>
-    <h2> <svg xmlns="http://www.w3.org/2000/svg" height="30" fill="currentColor" class="bi bi-arrow-through-heart"
-              viewBox="0 0 16 16">
-<path fill-rule="evenodd"
-                d="M2.854 15.854A.5.5 0 0 1 2 15.5V14H.5a.5.5 0 0 1-.354-.854l1.5-1.5A.5.5 0 0 1 2 11.5h1.793l.53-.53c-.771-.802-1.328-1.58-1.704-2.32-.798-1.575-.775-2.996-.213-4.092C3.426 2.565 6.18 1.809 8 3.233c1.25-.98 2.944-.928 4.212-.152L13.292 2 12.147.854A.5.5 0 0 1 12.5 0h3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-.854.354L14 2.707l-1.006 1.006c.236.248.44.531.6.845.562 1.096.585 2.517-.213 4.092-.793 1.563-2.395 3.288-5.105 5.08L8 13.912l-.276-.182a21.86 21.86 0 0 1-2.685-2.062l-.539.54V14a.5.5 0 0 1-.146.354l-1.5 1.5Zm2.893-4.894A20.419 20.419 0 0 0 8 12.71c2.456-1.666 3.827-3.207 4.489-4.512.679-1.34.607-2.42.215-3.185-.817-1.595-3.087-2.054-4.346-.761L8 4.62l-.358-.368c-1.259-1.293-3.53-.834-4.346.761-.392.766-.464 1.845.215 3.185.323.636.815 1.33 1.519 2.065l1.866-1.867a.5.5 0 1 1 .708.708L5.747 10.96Z" />
-</svg>About me</h2>
-    <p>
-        Hi,<strong> I'm Future</strong>, the creativ mind behind <strong> FutureCraft. </strong>
-    I'm a passionate web developer with a mission to help individuals, brands, and businesses bring their ideas to life online.
-    </p>
-    <p>With years of hands-on experience in website design and developmont, i specialize in creating fast, modern, and mobile-friendly websites that don't just look good-they perform.</p>
-    <p>Let's build something amazing - together.</p>
+    </div>
+      <div class="card-footer">
+        <small class="text-body-secondary">Last updated 3 mins ago</small>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card h-100">
+      <img src="./img/UX.Ul.jpg" class="card-img-top" alt="ux img..">
+      <div class="card-body">
+        <h5 class="card-title text-warning">UI/UX Design</h5>
+        <p class="card-text">We design user interfaces and experience. Our services include user research, wireframing, prototyping, and visual design. i focus on creating intuitive and effective digital products.</p>
+    </div>
+      <div class="card-footer">
+        <small class="text-body-secondary">Last updated 3 mins ago</small>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card h-100">
+      <img src="./img/brand.jpg" class="card-img-top" alt="brand img.">
+      <div class="card-body">
+        <h5 class="card-title text-warning">Brand Identity Design</h5>
+        <p class="card-text">We create brand identities that include logo design, color palettes, typography, and brand guidelines. Our goal is to develop a cohesive visual identity that reflects your brand's values and helps you connect with your audience.</p>
+    </div>
+      <div class="card-footer">
+        <small class="text-body-secondary">Last updated 3 mins ago</small>
+      </div>
+    </div>
   </div>
 </div>
+
+</div>
+
+<div class="container mt-3">
+ <div class="row row-cols-1 row-cols-md-3 g-4">
+        
+  <div class="col">
+    <div class="card h-100">
+      <img src="./img/landpage.jpg" class="card-img-top" alt="landpage.">
+      <div class="card-body">
+        <h5 class="card-title text-warning">  Landing Pages</h5>
+        <p class="card-text">We design and build landing pages that include compelling headlines, clear calls to action, and optimized forms. Our goal is to create a focused page that drives conversions and helps you achieve your business objectives.</p>
+    </div>
+      <div class="card-footer">
+        <small class="text-body-secondary">Last updated 3 mins ago</small>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card h-100">
+      <img src="./img/webmeantin.jpg" class="card-img-top" alt="webmaintenace img.">
+      <div class="card-body">
+        <h5 class="card-title text-warning">Website Maintenance</h5>
+        <p class="card-text">Keep your business Website running smothly with our comprehensive Maintenance services. We handle everything from security updates and backups to content updates and performance optimization, ensuring your site is always secure, up-to-date, and performing at its best. we'll take care of the technical stuff.</p>
+    </div>
+      <div class="card-footer">
+        <small class="text-body-secondary">Last updated 3 mins ago</small>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card h-100">
+      <img src="./img/proto.jpg" class="card-img-top" alt="portfolio img">
+      <div class="card-body">
+        <h5 class="card-title text-warning"> Portfolio & Business Sites</h5>
+        <p class="card-text">We Custom portfolios for creatives, or professional websites for small
+            businesses and entrepreneurs.</p>
+    </div>
+      <div class="card-footer">
+        <small class="text-body-secondary">Last updated 3 mins ago</small>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
 </section>
-<footer id="contact">
-    <p>Contact:  / &copy; 2025 fcraft606@. All rights reserved. </p>
-</footer>
+
+
+<!--ready-->
+
+<section >
+
+  <div class="container my-5"> 
+    <div class="position-relative p-5 text-center text-muted bg-body border border-dashed rounded-5"> 
+        <button type="button" class="position-absolute top-0 end-0 p-3 m-3 btn-close bg-secondary bg-opacity-10 rounded-pill" aria-label="Close"></button> 
+        <svg class="bi mt-5 mb-3" width="48" height="48" aria-hidden="true"><use xlink:href="#check2-circle"></use></svg> 
+        <h1 class="text-body-emphasis">Ready to Transform Your Digital Presence❓</h1> 
+        <p class="col-lg-6 mx-auto mb-4">
+Let's discuss your project and create something amazing together
+<p><a class="btn btn-lg btn-warning" href="https://wa.me/message/BXPFJE3YCBVXF1"> Get Started Today</a></p> 
+          
+   
+
+</div> 
+</div> 
+
+</section>
+
+
+<!--WHY US-->
+<section>
+<div class="container">
+    <div class="container mt-5 mb-4">
+    <h2 class="text-center mb-4">Why Us❓</h2>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5 class="card-title">Quality Service</h5>
+                    <p class="card-text">We provide top-notch services tailored to your needs.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mt-2">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5 class="card-title">Expert Team</h5>
+                    <p class="card-text">Our team consists of experienced professionals dedicated to your success.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mt-2">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5 class="card-title">Affordable Pricing</h5>
+                    <p class="card-text">We offer competitive pricing without compromising quality.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
+     <div class="col-lg-7 p-3 p-lg-5 pt-lg-3"> 
+       
+       
+        <h1 class="display-4 fw-bold lh-1 text-body-emphasis">Why ❓ Leading Brands Choose Us</h1> 
+        <p class="lead">Leading brands trust us because of our proven track record, unwavering commitment to quality, and consistent delivery of exceptional results </p>
+       <p> 
+        <div>
+        <h2>   <svg xmlns="http://www.w3.org/2000/svg" height="30" fill="currentColor" class="bi bi-check2-circle"
+              viewBox="0 0 16 16">
+<path
+                d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0z" />
+<path
+                d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l7-7z" />
+</svg>  Strategic Thinking</h2>
+            <p>Develops tailored strategies that drive growth and achieve your goals</p>
+        </div>
+     
+ <div>
+        <h2>   <svg xmlns="http://www.w3.org/2000/svg" height="30" fill="currentColor" class="bi bi-check2-circle"
+              viewBox="0 0 16 16">
+<path
+                d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0z" />
+<path
+                d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l7-7z" />
+</svg>  24/7 Support</h2>
+            <p>We are here when you need us. Our 24/7 support ensures you're never alone. we provide constant assistance, rapid response times, and proactive communication, so you can always count on us.</p>
+        </div>
+     
+
+    </p>
+       
+        <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3"> 
+            <button type="button" class="btn btn-dark btn-lg px-2 me-md-2 fw-bold"><a class="btn btn-lg btn-warning" href="https://wa.me/message/BXPFJE3YCBVXF1">  Start Your Project</a> </button> 
+            <button type="button" class="btn btn-outline-warning btn-lg px-4">Default</button> 
+        </div> 
+    </div> 
+    <div class="col-lg-4 offset-lg-1 p-0 overflow-hidden shadow-lg">
+         <img class="rounded-lg-3" src="./img/illustration-14.webp" alt="illustration-14" width="720"> 
+        </div>
+     </div>
+
+
+</div>
+
+
+<div class="px-4 py-5 my-5 text-center"> 
+    <img class="d-block mx-auto mb-4" src="./img/luca-bravo-9l_326FISzk-unsplash (1).jpg" alt="" width="72" height="57" style="border-radius: 5px;"> 
+    
+    <h1 class="display-5 fw-bold text-body-emphasis">Ready to Join Our Mission?</h1>
+     <div class="col-lg-6 mx-auto"> 
+        <p class="lead mb-4">Whether it's a new project, a creative challenge, or just brainstorming, we are here to help you every step of the way. Let's build something amazing together!</p>
+        
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center"> 
+            <button type="button" class="btn btn-warning btn-lg px-4 gap-3">View Open Roles</button> 
+            <button type="button" class="btn btn-outline-warning btn-lg px-4">Learn Our Culture</button> 
+        </div>
+     </div> 
+    </div>
+
+</section>
+
+
+
+
+
+
+ <!-- FOOTER --> 
+<hr class="featurette-divider"> 
+
+
+            <footer class="container"> <p class="float-end"><a href="#">Back to top</a></p> 
+              <p>@FutureCraft · <a href="#">Privacy</a> · <a href="#">Terms</a></p> </footer> 
+   
+
+<div class="container bg-warning">
+   <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 border-top"> 
+    <div class="col mb-3">
+       <a href="/" class="d-flex align-items-center mb-3 link-body-emphasis text-decoration-none" aria-label="Bootstrap">
+         <img src="./img/luca-bravo-9l_326FISzk-unsplash (1).jpg" class="bi me-2" width="40" height="32" aria-hidden="true" style="border-radius: 5px;"></svg> </a> 
+         <p class="text-secondary font-bold">FUTURECRAFT</p>
+        </div> <div class="col mb-3"></div>
+         <div class="col mb-3"> 
+          <h5>Section</h5> 
+          <ul class="nav flex-column">
+             <li class="nav-item mb-2">
+              <a href="./index.html" class="nav-link p-0 text-body-secondary">Home</a></li> 
+              <li class="nav-item mb-2">
+                <a href="./Services.html" class="nav-link p-0 text-body-secondary">Features</a>
+              </li> 
+              <li class="nav-item mb-2">
+                <a href="https://wa.me/message/BXPFJE3YCBVXF1" class="nav-link p-0 text-body-secondary">contact</a></li> 
+                <li class="nav-item mb-2">
+                  <a href="./FAQs.html" class="nav-link p-0 text-body-secondary">FAQs</a></li>
+                   <li class="nav-item mb-2"><a href="./about.html" class="nav-link p-0 text-body-secondary">About</a></li>
+                   </ul> </div> <div class="col mb-3"> <h5>Section</h5> 
+                    <ul class="nav flex-column"> <li class="nav-item mb-2"><a href="./index.html" class="nav-link p-0 text-body-secondary">Home</a></li> 
+                      <li class="nav-item mb-2"><a href="./Services.html" class="nav-link p-0 text-body-secondary">Features</a></li> <li class="nav-item mb-2">
+                        <a href="https://wa.me/message/BXPFJE3YCBVXF1" class="nav-link p-0 text-body-secondary">contact</a></li>
+                         <li class="nav-item mb-2"><a href="./FAQs.html" class="nav-link p-0 text-body-secondary">FAQs</a></li> 
+                         <li class="nav-item mb-2"><a href="./about.html" class="nav-link p-0 text-body-secondary">About</a></li>
+                         </ul> </div> <div class="col mb-3"> 
+                          <h5>Section</h5>
+                           <ul class="nav flex-column"> 
+                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li> <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Features</a></li> <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">contact</a></li> <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li> <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About</a></li> </ul> </div> </footer> </div>
+
+
+      </section>
+
+
+
+
+
+
+ <a href="https://wa.me/message/BXPFJE3YCBVXF1" class="floating-whatsapp" target="_blank">
+            <img class="img"  src="./img/whatsapp.jpg" alt="WhatsApp">
+        </a>
+        <a href="https://www.instagram.com/futurecraft.dev/" class="floating-instagram" target="_blank">
+            <img class="img" src="./img/IG.jpg" alt="Instagram" >
+        </a>
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
