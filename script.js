@@ -5,3 +5,10 @@ document.querySelectorAll('.faq-question').forEach(button => {
         answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
     });
 });
+
+
+document.querySelector('.scroll-down-button').addEventListener('click', function(){
+    window.scrollTo({ top: document.querySelector('#next-section').offsetTop,
+behavior: 'smooth'
+    });
+});
