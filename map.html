@@ -1,188 +1,455 @@
-
-
-
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="dark">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FutureCraft</title>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-
+  <title>Location | FutureCraft</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 
   <style>
-       
-.floating-whatsapp, .floating-instagram {
-            position: fixed;
-            z-index: 999; /* Ensure it's on top */
-            width: 60px; /* Adjust size */
-            height: 60px;
-            border-radius: 50%; /* Make it round */
-            text-align: center;
-            line-height: 60px;
-            text-decoration: none;
-            color: white;
-        }
-        .floating-whatsapp {
-            left: 20px; /* Position from the left */
-            bottom: 20px; /* Position from the bottom */
-            background-color: #25D366; /* WhatsApp green */
-        }
-        .floating-instagram {
-            right: 20px; /* Position from the right */
-            bottom: 20px; /* Position from the bottom */
-            background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); /* Instagram gradient */
-        }
-        .img {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-        }
+    :root {
+      --fc-gold: #f6c343;
+      --fc-panel: rgba(13, 16, 24, 0.88);
+      --fc-soft: rgba(255, 255, 255, 0.08);
+    }
 
+    html {
+      scroll-behavior: smooth;
+    }
 
-body{
-    font-family: Arial, sans-serif; background-image: url(./img/file_00000000a3ec6246aba6656f9e91a50a.png);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-}
+    body {
+      font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+      background-image: linear-gradient(rgba(7, 9, 14, 0.83), rgba(7, 9, 14, 0.92)), url(./img/file_00000000a3ec6246aba6656f9e91a50a.png);
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      min-height: 100vh;
+      padding-top: 88px;
+      color: #f5f5f5;
+    }
 
-.container{ width: 100%;
-    overflow: hidden;
+    img {
+      border-radius: 8px;
+    }
 
-}
-.container iframe{
-    width: 100%;
-    height: auto;
-    display: block;
-}
+    .navbar {
+      background: rgba(10, 12, 18, 0.86) !important;
+      backdrop-filter: blur(12px);
+      transition: box-shadow 0.3s ease, background 0.3s ease;
+      padding: 0.9rem 0;
+    }
 
-    </style>
+    .navbar.nav-scrolled {
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+    }
 
+    .navbar-brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+    }
 
+    .navbar-brand img {
+      width: 42px;
+      height: 42px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 2px solid rgba(246, 195, 67, 0.45);
+    }
 
+    .navbar-toggler {
+      border-color: rgba(255, 255, 255, 0.2);
+      padding: 0.5rem 0.7rem;
+    }
+
+    .navbar-nav {
+      gap: 0.35rem;
+    }
+
+    .navbar-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-left: 1rem;
+    }
+
+    .nav-link {
+      color: rgba(255, 255, 255, 0.82) !important;
+      font-weight: 600;
+      padding: 0.55rem 0.95rem !important;
+      border-radius: 999px;
+      transition: background-color 0.25s ease, color 0.25s ease;
+    }
+
+    .nav-link:hover,
+    .nav-link:focus,
+    .nav-link.active {
+      color: #111 !important;
+      background: var(--fc-gold);
+    }
+
+    .btn-contact {
+      border-radius: 999px;
+      padding: 0.65rem 1.1rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .hero-panel,
+    .info-card,
+    .map-card,
+    .cta-panel {
+      background: var(--fc-panel);
+      border: 1px solid var(--fc-soft);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.28);
+    }
+
+    .hero-panel {
+      border-radius: 1.75rem;
+      overflow: hidden;
+    }
+
+    .hero-copy {
+      padding: 3rem;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.35rem 0.85rem;
+      border-radius: 999px;
+      background: rgba(246, 195, 67, 0.12);
+      color: var(--fc-gold);
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+    }
+
+    .hero-title {
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      line-height: 1.05;
+      font-weight: 800;
+      margin: 1.25rem 0 1rem;
+    }
+
+    .hero-art {
+      min-height: 100%;
+      background: linear-gradient(140deg, rgba(246, 195, 67, 0.22), rgba(20, 24, 36, 0.95)), url(./img/about-9.webp) center/cover;
+      position: relative;
+    }
+
+    .hero-badge {
+      position: absolute;
+      right: 1.25rem;
+      bottom: 1.25rem;
+      padding: 1rem 1.1rem;
+      max-width: 250px;
+      border-radius: 1rem;
+      background: rgba(7, 9, 14, 0.84);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .section-title {
+      position: relative;
+      display: inline-block;
+      margin-bottom: 1rem;
+    }
+
+    .section-title::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -10px;
+      width: 60%;
+      height: 3px;
+      background: linear-gradient(90deg, var(--fc-gold), transparent);
+    }
+
+    .info-card,
+    .map-card,
+    .cta-panel {
+      border-radius: 1.25rem;
+      padding: 1.5rem;
+      height: 100%;
+    }
+
+    .info-card h3 {
+      color: var(--fc-gold);
+      font-size: 1.1rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .info-card p,
+    .info-card a,
+    .cta-panel p {
+      color: rgba(255, 255, 255, 0.78);
+      text-decoration: none;
+    }
+
+    .map-frame {
+      overflow: hidden;
+      border-radius: 1rem;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      min-height: 520px;
+    }
+
+    .map-frame iframe {
+      width: 100%;
+      height: 100%;
+      min-height: 520px;
+      border: 0;
+      display: block;
+      filter: saturate(0.95) contrast(1.02);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .floating-whatsapp,
+    .floating-instagram {
+      position: fixed;
+      z-index: 999;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 60px;
+      text-decoration: none;
+      color: white;
+    }
+
+    .floating-whatsapp {
+      left: 20px;
+      bottom: 20px;
+      background-color: #25d366;
+    }
+
+    .floating-instagram {
+      right: 20px;
+      bottom: 20px;
+      background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285aeb 90%);
+    }
+
+    .img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+    }
+
+    .footer-shell {
+      background: rgba(10, 12, 18, 0.94);
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    @media (max-width: 991.98px) {
+      .navbar-collapse {
+        margin-top: 1rem;
+        padding: 1rem;
+        border-radius: 1rem;
+        background: rgba(10, 12, 18, 0.97);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .navbar-actions {
+        margin-left: 0;
+        margin-top: 1rem;
+      }
+
+      .btn-contact {
+        width: 100%;
+      }
+
+      .hero-copy {
+        padding: 2rem;
+      }
+
+      .hero-art {
+        min-height: 320px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding-top: 82px;
+      }
+
+      .map-frame,
+      .map-frame iframe {
+        min-height: 420px;
+      }
+    }
+  </style>
 </head>
 
-
 <body>
-
-
-    <!--Navbar-->
-<section>
-<nav class="navbar navbar-dark bg-dark relative-Top">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#"><span class="text-warning"><img src="./img/file_00000000a3ec6246aba6656f9e91a50a.png" height="40px">
-      FutureCraft</span></a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
-      <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel"><img src="./img/file_00000000a3ec6246aba6656f9e91a50a.png" height="40px">
-      FutureCraft</h5>
-        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-      </div>
-      <div class="offcanvas-body">
-        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top shadow-sm">
+    <div class="container">
+      <a class="navbar-brand text-warning" href="./index.html">
+        <img src="./img/file_00000000a3ec6246aba6656f9e91a50a.png" alt="FutureCraft logo">
+        <span>FutureCraft</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#siteNavbar" aria-controls="siteNavbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="siteNavbar">
+        <ul class="navbar-nav ms-lg-auto align-items-lg-center">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
+            <a class="nav-link" href="./index.html">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="./about.html">About Us</a>
+            <a class="nav-link" href="./Services.html">Services</a>
           </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Dropdown
-            </a>
-            <ul class="dropdown-menu dropdown-menu-dark">
-              <li><a class="dropdown-item" href="./Services.html">Services</a></li>
-              <li><a class="dropdown-item" href="./contact.html">📞Contact</a></li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-              <li><a class="dropdown-item" href="./map.html">map</a></li>
-            </ul>
+          <li class="nav-item">
+            <a class="nav-link" href="./myworks.html">Portfolio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./about.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./FAQs.html">FAQs</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="./map.html">Map</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./contact.html">Contact</a>
           </li>
         </ul>
-        <form class="d-flex mt-3" role="search">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-          <button class="btn btn-success" type="submit">Search</button>
-        </form>
+        <div class="navbar-actions">
+          <a class="btn btn-warning btn-contact" href="https://wa.me/message/BXPFJE3YCBVXF1">Chat on WhatsApp</a>
+        </div>
       </div>
     </div>
-  </div>
-</nav>
-</section>
+  </nav>
 
+  <main class="container py-4 py-lg-5">
+    <section class="hero-panel mb-5">
+      <div class="row g-0 align-items-stretch">
+        <div class="col-lg-7">
+          <div class="hero-copy">
+            <span class="eyebrow">Find Us</span>
+            <h1 class="hero-title">See where FutureCraft is based and how to reach us.</h1>
+            <p class="lead text-white-50 mb-4">If you want to discuss a project, book a call, or confirm location details, this page gives you the quickest route.</p>
+            <div class="d-flex flex-wrap gap-3">
+              <a class="btn btn-warning btn-lg" href="#location-map">Open map</a>
+              <a class="btn btn-outline-light btn-lg" href="./contact.html">Go to contact page</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-5">
+          <div class="hero-art">
+            <div class="hero-badge">
+              <strong class="d-block text-warning mb-2">Location</strong>
+              <span class="text-white-50">Soluyi, Gbagada, Lagos State, Nigeria.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
+    <section class="row g-4 mb-5">
+      <div class="col-md-4" data-animate>
+        <div class="info-card">
+          <h3>Address</h3>
+          <p class="mb-0">Soluyi, Gbagada, Lagos State, Nigeria.</p>
+        </div>
+      </div>
+      <div class="col-md-4" data-animate>
+        <div class="info-card">
+          <h3>Email</h3>
+          <p class="mb-0"><a href="mailto:fcraft606@gmail.com">fcraft606@gmail.com</a></p>
+        </div>
+      </div>
+      <div class="col-md-4" data-animate>
+        <div class="info-card">
+          <h3>Phone</h3>
+          <p class="mb-0"><a href="tel:+2348157873369">+2348157873369</a></p>
+        </div>
+      </div>
+    </section>
 
+    <section class="map-card mb-5" id="location-map" data-animate>
+      <div class="d-flex flex-column flex-lg-row justify-content-between align-items-lg-end gap-3 mb-4">
+        <div>
+          <h2 class="section-title">Map Location</h2>
+          <p class="text-white-50 mb-0">Use the embedded map below to view the area around Gbagada and plan your route.</p>
+        </div>
+        <a class="btn btn-outline-light" href="https://www.google.com/maps?q=Gbagada%2C+Lagos%2C+Nigeria" target="_blank" rel="noreferrer">Open in Google Maps</a>
+      </div>
+      <div class="map-frame">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15854.880983727453!2d3.380167981410522!3d6.556956762469261!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b8d7e0016f285%3A0x8d7bbd27a2060c4f!2sGbagada%2C%20Lagos%20105102%2C%20Lagos!5e0!3m2!1sen!2sng!4v1752076893846!5m2!1sen!2sng" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </section>
 
+    <section class="cta-panel text-center" data-animate>
+      <h2 class="text-warning mb-3">Need directions or project help?</h2>
+      <p class="mb-4">Reach out directly through WhatsApp or the contact page if you want to confirm details before moving forward.</p>
+      <div class="d-flex flex-wrap justify-content-center gap-3">
+        <a class="btn btn-warning btn-lg" href="https://wa.me/message/BXPFJE3YCBVXF1">Chat on WhatsApp</a>
+        <a class="btn btn-outline-light btn-lg" href="./contact.html">Contact FutureCraft</a>
+      </div>
+    </section>
+  </main>
 
-    <div class="container mt-5" >
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15854.880983727453!2d3.380167981410522!3d6.556956762469261!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b8d7e0016f285%3A0x8d7bbd27a2060c4f!2sGbagada%2C%20Lagos%20105102%2C%20Lagos!5e0!3m2!1sen!2sng!4v1752076893846!5m2!1sen!2sng" width="900" height="950" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-
-</div>
-
-
-<!-- FOOTER --> 
-<hr class="featurette-divider"> 
-
-
-            <footer class="container"> <p class="float-end"><a href="#">Back to top</a></p> 
-              <p class="text-warning">@FutureCraft · <a href="#">Privacy</a> · <a href="#">Terms</a></p> </footer> 
-   
-
-<div class="container bg-dark text-white">
-   <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 border-top"> 
-    <div class="col mb-3">
-       <a href="/" class="d-flex align-items-center mb-3 link-body-emphasis text-decoration-none" aria-label="Bootstrap">
-         <img src="./img/luca-bravo-9l_326FISzk-unsplash (1).jpg" class="bi me-2" width="40" height="32" aria-hidden="true" style="border-radius: 5px;"></svg> </a> 
-         <p class="text-warning font-bold">FUTURECRAFT</p>
-        </div> <div class="col mb-3"></div>
-         <div class="col mb-3"> 
-          <h5>Section</h5> 
+  <footer class="footer-shell mt-5">
+    <div class="container py-5">
+      <div class="row g-4">
+        <div class="col-lg-4">
+          <a href="./index.html" class="d-inline-flex align-items-center gap-3 text-decoration-none mb-3">
+            <img src="./img/luca-bravo-9l_326FISzk-unsplash (1).jpg" width="44" height="36" alt="FutureCraft">
+            <span class="text-warning fw-bold">FUTURECRAFT</span>
+          </a>
+          <p class="text-white-50 mb-0">Crafting modern websites, brand experiences, and digital presence for ambitious businesses.</p>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h5>Explore</h5>
           <ul class="nav flex-column">
-             <li class="nav-item mb-2">
-              <a href="./index.html" class="nav-link p-0  text-white">Home</a></li> 
-              <li class="nav-item mb-2">
-                <a href="./Services.html" class="nav-link p-0 text-white">Features</a>
-              </li> 
-              <li class="nav-item mb-2">
-                <a href="https://wa.me/message/BXPFJE3YCBVXF1" class="nav-link p-0 text-white">contact</a></li> 
-                <li class="nav-item mb-2">
-                  <a href="./FAQs.html" class="nav-link p-0 text-white">FAQs</a></li>
-                   <li class="nav-item mb-2"><a href="./about.html" class="nav-link p-0 text-white">About</a></li>
-                   </ul> </div> <div class="col mb-3"> <h5>Section</h5> 
-                    <ul class="nav flex-column"> <li class="nav-item mb-2"><a href="./index.html" class="nav-link p-0 text-body-secondary">Home</a></li> 
-                      <li class="nav-item mb-2"><a href="./Services.html" class="nav-link p-0 text-white">Features</a></li> <li class="nav-item mb-2">
-                        <a href="https://wa.me/message/BXPFJE3YCBVXF1" class="nav-link p-0 text-white">contact</a></li>
-                         <li class="nav-item mb-2"><a href="./FAQs.html" class="nav-link p-0 text-white">FAQs</a></li> 
-                         <li class="nav-item mb-2"><a href="./about.html" class="nav-link p-0 text-white">About</a></li>
-                         </ul> </div> <div class="col mb-3"> 
-                          <h5>Section</h5>
-                           <ul class="nav flex-column"> 
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">Home</a></li> <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">Features</a></li> <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">contact</a></li> <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">FAQs</a></li> <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About</a></li> </ul> </div> </footer> </div>
+            <li class="nav-item mb-2"><a href="./index.html" class="nav-link p-0 text-white">Home</a></li>
+            <li class="nav-item mb-2"><a href="./Services.html" class="nav-link p-0 text-white">Services</a></li>
+            <li class="nav-item mb-2"><a href="./myworks.html" class="nav-link p-0 text-white">Portfolio</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h5>Company</h5>
+          <ul class="nav flex-column">
+            <li class="nav-item mb-2"><a href="./about.html" class="nav-link p-0 text-white">About</a></li>
+            <li class="nav-item mb-2"><a href="./FAQs.html" class="nav-link p-0 text-white">FAQs</a></li>
+            <li class="nav-item mb-2"><a href="./contact.html" class="nav-link p-0 text-white">Contact</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-4">
+          <h5>Direct Contact</h5>
+          <p class="text-white-50 mb-2">Email: <a class="text-white text-decoration-none" href="mailto:fcraft606@gmail.com">fcraft606@gmail.com</a></p>
+          <p class="text-white-50 mb-2">Phone: <a class="text-white text-decoration-none" href="tel:+2348157873369">+2348157873369</a></p>
+          <p class="text-white-50 mb-0">Location: Soluyi, Gbagada, Lagos State, Nigeria.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
 
+  <a href="https://wa.me/message/BXPFJE3YCBVXF1" class="floating-whatsapp" target="_blank">
+    <img class="img" src="./img/whatsapp.jpg" alt="WhatsApp">
+  </a>
+  <a href="https://www.instagram.com/futurecraft.dev/" class="floating-instagram" target="_blank">
+    <img class="img" src="./img/IG.jpg" alt="Instagram">
+  </a>
 
-      </section>
-
-
-
-
-
-
- <a href="https://wa.me/message/BXPFJE3YCBVXF1" class="floating-whatsapp" target="_blank">
-            <img class="img"  src="./img/whatsapp.jpg" alt="WhatsApp">
-        </a>
-        <a href="https://www.instagram.com/futurecraft.dev/" class="floating-instagram" target="_blank">
-            <img class="img" src="./img/IG.jpg" alt="Instagram" >
-        </a>
-
-
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-
-
+  <script src="script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
+
 </html>

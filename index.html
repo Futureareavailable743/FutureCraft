@@ -1,3 +1,4 @@
+﻿
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="dark">
 
@@ -5,602 +6,821 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FutureCraft</title>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
- 
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 
   <style>
-        .card {
-            transition: transform 0.2s; /* Animation */
-        }
-        .card:hover {
-            transform: scale(1.05); /* Scale up on hover */
-        }
+    :root {
+      --fc-gold: #f6c343;
+      --fc-gold-strong: #ffb84d;
+      --fc-ink: #0f1115;
+      --fc-card: #151922;
+      --fc-soft: rgba(255, 255, 255, 0.08);
+    }
 
+    body {
+      font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+      background-image: url(./img/file_00000000a3ec6246aba6656f9e91a50a.png);
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      min-height: 100vh;
+      padding-top: 88px;
+    }
 
+    html {
+      scroll-behavior: smooth;
+    }
 
-.icon-square {
-  width: 3rem;
-  height: 3rem;
-  border-radius: 0.75rem;
-}
+    img {
+      border-radius: 8px;
+    }
 
+    .navbar {
+      background: rgba(10, 12, 18, 0.86) !important;
+      backdrop-filter: blur(12px);
+      transition: box-shadow 0.3s ease, background 0.3s ease;
+      padding: 0.9rem 0;
+    }
 
+    .navbar.nav-scrolled {
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+    }
 
-.floating-whatsapp, .floating-instagram {
-            position: fixed;
-            z-index: 999; /* Ensure it's on top */
-            width: 60px; /* Adjust size */
-            height: 60px;
-            border-radius: 50%; /* Make it round */
-            text-align: center;
-            line-height: 60px;
-            text-decoration: none;
-            color: white;
-        }
-        .floating-whatsapp {
-            left: 20px; /* Position from the left */
-            bottom: 20px; /* Position from the bottom */
-            background-color: #25D366; /* WhatsApp green */
-        }
-        .floating-instagram {
-            right: 20px; /* Position from the right */
-            bottom: 20px; /* Position from the bottom */
-            background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); /* Instagram gradient */
-        }
-        .img {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-        }
+    .navbar-brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+    }
 
-body{
-    font-family: Arial, sans-serif; background-image: url(./img/file_00000000a3ec6246aba6656f9e91a50a.png);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-}
- html{
-  scroll-behavior: smooth;
- }
- 
- img{
-  border-radius: 8px;
- }
+    .navbar-brand img {
+      width: 42px;
+      height: 42px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 2px solid rgba(246, 195, 67, 0.45);
+    }
 
+    .navbar-toggler {
+      border-color: rgba(255, 255, 255, 0.2);
+      padding: 0.5rem 0.7rem;
+    }
 
+    .navbar-nav {
+      gap: 0.35rem;
+    }
 
+    .nav-link {
+      color: rgba(255, 255, 255, 0.82) !important;
+      font-weight: 600;
+      padding: 0.55rem 0.95rem !important;
+      border-radius: 999px;
+      transition: background-color 0.25s ease, color 0.25s ease;
+    }
 
+    .nav-link:hover,
+    .nav-link:focus,
+    .nav-link.active {
+      color: #111 !important;
+      background: var(--fc-gold);
+    }
 
- 
-    </style>
+    .offcanvas {
+      background: rgba(10, 12, 18, 0.97);
+      backdrop-filter: blur(16px);
+    }
 
+    .card {
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+      background: var(--fc-card);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
 
+    .card:hover {
+      transform: translateY(-6px) scale(1.01);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+    }
 
+    .carousel-item img {
+      height: 70vh;
+      object-fit: cover;
+      filter: saturate(1.05);
+    }
+
+    .carousel-caption {
+      background: rgba(7, 9, 14, 0.55);
+      backdrop-filter: blur(6px);
+      padding: 1.5rem 1.75rem;
+      border-radius: 1rem;
+      box-shadow: 0 16px 32px rgba(0, 0, 0, 0.35);
+    }
+
+    .hero-orbs {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .hero-orbs span {
+      position: absolute;
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255, 195, 67, 0.45), rgba(255, 195, 67, 0));
+      filter: blur(2px);
+      animation: float 9s ease-in-out infinite;
+    }
+
+    .hero-orbs span:nth-child(1) {
+      top: 15%;
+      left: 6%;
+    }
+
+    .hero-orbs span:nth-child(2) {
+      bottom: 18%;
+      right: 10%;
+      animation-delay: -2s;
+    }
+
+    .hero-orbs span:nth-child(3) {
+      top: 35%;
+      right: 25%;
+      width: 90px;
+      height: 90px;
+      animation-delay: -4s;
+    }
+
+    @keyframes float {
+      0%,
+      100% {
+        transform: translateY(0) scale(1);
+      }
+
+      50% {
+        transform: translateY(-20px) scale(1.06);
+      }
+    }
+
+    .section-title {
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -10px;
+      width: 60%;
+      height: 3px;
+      background: linear-gradient(90deg, var(--fc-gold), transparent);
+    }
+
+    .btn-glow {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-glow::after {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -60%;
+      width: 40%;
+      height: 200%;
+      background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+      transform: rotate(15deg);
+      animation: shimmer 3s ease-in-out infinite;
+    }
+
+    @keyframes shimmer {
+      0% {
+        transform: translateX(-120%) rotate(15deg);
+      }
+
+      60% {
+        transform: translateX(260%) rotate(15deg);
+      }
+
+      100% {
+        transform: translateX(260%) rotate(15deg);
+      }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .stat-card {
+      background: rgba(10, 12, 18, 0.75);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 1rem;
+      padding: 1.75rem;
+      text-align: center;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+    }
+
+    .stat-number {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--fc-gold);
+    }
+
+    .portfolio-card img {
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.2rem 0.75rem;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.12);
+      color: #f3f3f3;
+      font-size: 0.75rem;
+      margin-right: 0.35rem;
+    }
+
+    .floating-whatsapp,
+    .floating-instagram {
+      position: fixed;
+      z-index: 999;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 60px;
+      text-decoration: none;
+      color: white;
+    }
+
+    .floating-whatsapp {
+      left: 20px;
+      bottom: 20px;
+      background-color: #25d366;
+    }
+
+    .floating-instagram {
+      right: 20px;
+      bottom: 20px;
+      background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285aeb 90%);
+    }
+
+    .img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+    }
+
+    .bg-yellow-50 {
+      background: rgba(255, 205, 100, 0.08);
+    }
+
+    .text-yellow-600 {
+      color: var(--fc-gold-strong);
+    }
+
+    .text-3xl {
+      font-size: 2rem;
+    }
+
+    .text-4xl {
+      font-size: 2.4rem;
+    }
+
+    .text-secondary {
+      color: rgba(255, 255, 255, 0.7) !important;
+    }
+
+    .shadow-soft {
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+    }
+
+    @media (max-width: 768px) {
+      .carousel-item img {
+        height: 55vh;
+      }
+
+      .text-4xl {
+        font-size: 2rem;
+      }
+
+      body {
+        padding-top: 82px;
+      }
+    }
+  </style>
 </head>
 
-
 <body>
-
-
-    <!--Navbar-->
-<section> 
- <nav class="navbar navbar-dark bg-dark fixed-top shadow-sm">
-    
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#"><span class="text-warning"> <img src="./img/file_00000000a3ec6246aba6656f9e91a50a.png" height="40px">
-      
-      FutureCraft</span></a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
-      <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel"><img src="./img/file_00000000a3ec6246aba6656f9e91a50a.png" height="40px">
-      FutureCraft</h5>
-        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-      </div>
-      <div class="offcanvas-body">
-        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+  <!--Navbar-->
+ 
+          
+     <nav class="navbar navbar-expand-lg navbar-dark fixed-top shadow-sm">
+    <div class="container">
+      <a class="navbar-brand text-warning" href="./index.html">
+        <img src="./img/file_00000000a3ec6246aba6656f9e91a50a.png" alt="FutureCraft logo">
+        <span>FutureCraft</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#siteNavbar" aria-controls="siteNavbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="siteNavbar">
+        <ul class="navbar-nav ms-lg-auto align-items-lg-center">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="./FAQs.html">FAQS</a>
+            <a class="nav-link" href="./index.html">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="./about.html">About Us</a>
+            <a class="nav-link" href="./Services.html">Services</a>
           </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Dropdown
-            </a>
-            <ul class="dropdown-menu dropdown-menu-dark">
-              <li><a class="dropdown-item" href="./Services.html">Services</a></li>
-              <li><a class="dropdown-item" href="./contact.html">📞Contact</a></li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-              <li><a class="dropdown-item" href="./map.html">map</a></li>
-            </ul>
+          <li class="nav-item">
+            <a class="nav-link" href="./myworks.html">Portfolio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./about.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="./FAQs.html">FAQs</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./contact.html">Contact</a>
           </li>
         </ul>
-        <form class="d-flex mt-3" role="search">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-          <button class="btn btn-success" type="submit">Search</button>
-        </form>
-      </div>
-    </div>
-  </div>
-
-
-</nav>
-</section>
-
-
-<!--    Home-->
-
-<section id="features" class="mt-3">
- <div id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel" data-bs-interval="3000">
-  
-    
-    <div class="carousel-indicators">
-      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-    </div>
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img src="./misc-16.webp" class="d-block w-100" alt="Feature Image">
-        <div class="carousel-caption text-start">
-          <h3 class="text-white">Crafting <span class="text-warning">Tomorrow's</span> <br />Web, <span class="text-body-secondary">Today. </span> </h3>
-          <p class="text-white">We create the most beatiful webstites around the world. Customize websites designed to grow your brand.</p> 
-      
-          <a class="btn btn-primary" href="https://wa.me/message/BXPFJE3YCBVXF1">Sign up today</a>
-          
+        <div class="navbar-actions">
+          <a class="btn btn-warning btn-contact" href="https://wa.me/message/BXPFJE3YCBVXF1">Chat on WhatsApp</a>
         </div>
       </div>
+    </div>
+  </nav>
 
-<div class="carousel-item active">
-        <img src="./img/sean-pollock-PhYq704ffdA-unsplash.jpg" class="d-block w-100" alt="Feature Image">
-        <div class="carousel-caption text-start">
-          <h3 class="text-warning">FutureCraft</h3>
-           <p class="text-white">We create innovative digital solutions that drive growth and elevate your brand. From web development to digital marketing, we're your partners in digital transformation.</p>
-          
-          <a class="btn btn-warning" href="./about.html">Learn more</a>
+
+  <!-- Home -->
+  <section id="features">
+    <div id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel" data-bs-interval="3000">
+      <div class="hero-orbs">
+        <span></span>
+        <span></span>
+        <span></span>
       </div>
-    </div>
 
-      
-<div class="carousel-item active">
-        <img src="./about-square-8.webp" class="d-block w-100" alt="Feature Image">
-        <div class="carousel-caption text-start">
-          <h3 class="text-warning">Build your business website with us</h3>
-           <p class="text-white"> We are passionate Web developer with a mission to help individuals, brands, and businesses bring their ideas to life online.
-</p>
-          <a class="btn btn-warning"href="./Services.html">Our service</a></p>
-               
-    
-        </div>
-    </div>
-
-
-    </div>
-    <!-- Optional: carousel controls -->
-    <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
-  </div>
-</section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      
-                 <!--about-->
-                 <section>
-
-<div class="container px-4 pt-5 my-5 text-center border-bottom">
-     <h1 class="display-4 fw-bold text-body-emphasis">About Us</h1> 
-     <div class="col-lg-6 mx-auto"> 
-        <p class="lead mb-4" >With years of hands-on experience in website design and development, we specialize in creating fast, modern, and mobile-friendly websites
-         that don't just look good-they perform. Every project we take on is a collaboration, crafted with care, precision, and a forward-thinking mindset. 
-      <p>
-        Whether you need a personal portfolio, a business landing page, or a full-featured site, we are here to turn your vision into reality.
-     </p>
-        </p>
-        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
-             <button type="button" class="btn btn-warning btn-lg px-4 me-sm-3">Chat Us on WhatsApp</button>
-              
-            </div>
-         </div> 
-         <div class="overflow-hidden" style="max-height: 30vh;">
-            
-         </div>
-         </div>
-
-                 </section>
-
-
-<!--services-->
-
-<section >
-<div class="container mb-2">
-<div class="p-5 text-center bg-body-tertiary rounded-3"> <h1 class="text-body-emphasis"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                class="bi bi-google-play mb-1" viewBox="0 0 16 16">
-<path
-                  d="M14.222 9.374c1.037-.61 1.037-2.137 0-2.748L11.528 5.04 8.32 8l3.207 2.96 2.694-1.586Zm-3.595 2.116L7.583 8.68 1.03 14.73c.201 1.029 1.36 1.61 2.303 1.055l7.294-4.295ZM1 13.396V2.603L6.846 8 1 13.396ZM1.03 1.27l6.553 6.05 3.044-2.81L3.333.215C2.39-.341 1.231.24 1.03 1.27Z" />
-</svg>  
-
-
-
-Our Service</h1> 
-    <p class="lead">
-At FutureCraft, we provide personalized Web development & design<code> Service </code>that bring your ideas to life online.  Whether you're just starting out or looking to upgrade your
-    your Digital presence, we've got you covered.
-
-</p> 
-</div>
-
-<div class="container mt-2">
-    <div class="row row-cols-1 row-cols-md-3 g-4">
-        
-  <div class="col">
-    <div class="card h-100">
-      <img src="./img/web.jpg" class="card-img-top" alt="web design.">
-      <div class="card-body">
-        <h5 class="card-title text-warning "> Web Design & Development</h5>
-        <p class="card-text">Beautiful, fast, modern websites built with clean code and responsive layouts-fully tailored to your brand and vision.
- </p>
-    </div>
-      <div class="card-footer">
-        <small class="text-body-secondary">Last updated 3 mins ago</small>
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
       </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card h-100">
-      <img src="./img/UX.Ul.jpg" class="card-img-top" alt="ux img..">
-      <div class="card-body">
-        <h5 class="card-title text-warning">UI/UX Design</h5>
-        <p class="card-text">We design user interfaces and experience. Our services include user research, wireframing, prototyping, and visual design. i focus on creating intuitive and effective digital products.</p>
-    </div>
-      <div class="card-footer">
-        <small class="text-body-secondary">Last updated 3 mins ago</small>
-      </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card h-100">
-      <img src="./img/brand.jpg" class="card-img-top" alt="brand img.">
-      <div class="card-body">
-        <h5 class="card-title text-warning">Brand Identity Design</h5>
-        <p class="card-text">We create brand identities that include logo design, color palettes, typography, and brand guidelines. Our goal is to develop a cohesive visual identity that reflects your brand's values and helps you connect with your audience.</p>
-    </div>
-      <div class="card-footer">
-        <small class="text-body-secondary">Last updated 3 mins ago</small>
-      </div>
-    </div>
-  </div>
-</div>
-
-</div>
-
-<div class="container mt-3">
- <div class="row row-cols-1 row-cols-md-3 g-4">
-        
-  <div class="col">
-    <div class="card h-100">
-      <img src="./img/landpage.jpg" class="card-img-top" alt="landpage.">
-      <div class="card-body">
-        <h5 class="card-title text-warning">  Landing Pages</h5>
-        <p class="card-text">We design and build landing pages that include compelling headlines, clear calls to action, and optimized forms. Our goal is to create a focused page that drives conversions and helps you achieve your business objectives.</p>
-    </div>
-      <div class="card-footer">
-        <small class="text-body-secondary">Last updated 3 mins ago</small>
-      </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card h-100">
-      <img src="./img/webmeantin.jpg" class="card-img-top" alt="webmaintenace img.">
-      <div class="card-body">
-        <h5 class="card-title text-warning">Website Maintenance</h5>
-        <p class="card-text">Keep your business Website running smothly with our comprehensive Maintenance services. We handle everything from security updates and backups to content updates and performance optimization, ensuring your site is always secure, up-to-date, and performing at its best. we'll take care of the technical stuff.</p>
-    </div>
-      <div class="card-footer">
-        <small class="text-body-secondary">Last updated 3 mins ago</small>
-      </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card h-100">
-      <img src="./img/proto.jpg" class="card-img-top" alt="portfolio img">
-      <div class="card-body">
-        <h5 class="card-title text-warning"> Portfolio & Business Sites</h5>
-        <p class="card-text">We Custom portfolios for creatives, or professional websites for small
-            businesses and entrepreneurs.</p>
-    </div>
-      <div class="card-footer">
-        <small class="text-body-secondary">Last updated 3 mins ago</small>
-      </div>
-    </div>
-  </div>
-</div>
-</div>
-</div>
-</section>
-
-
-<!--ready-->
-
-<section >
-
-  <div class="container my-5"> 
-    <div class="position-relative p-5 text-center text-muted bg-body border border-dashed rounded-5"> 
-        <button type="button" class="position-absolute top-0 end-0 p-3 m-3 btn-close bg-secondary bg-opacity-10 rounded-pill" aria-label="Close"></button> 
-        <svg class="bi mt-5 mb-3" width="48" height="48" aria-hidden="true"><use xlink:href="#check2-circle"></use></svg> 
-        <h1 class="text-body-emphasis">Ready to Transform Your Digital Presence❓</h1> 
-        <p class="col-lg-6 mx-auto mb-4">
-Let's discuss your project and create something amazing together
-<p><a class="btn btn-lg btn-warning" href="https://wa.me/message/BXPFJE3YCBVXF1"> Get Started Today</a></p> 
-          
-   
-
-</div> 
-</div> 
-
-</section>
-
-
-<!--WHY US-->
-<section>
-<div class="container">
-    <div class="container mt-5 mb-4">
-    <h2 class="text-center mb-4">Why Us❓</h2>
-    <div class="row">
-        <div class="col-md-4">
-            <div class="card text-center">
-                <div class="card-body">
-                    <h5 class="card-title">Quality Service</h5>
-                    <p class="card-text">We provide top-notch services tailored to your needs.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-4 mt-2">
-            <div class="card text-center">
-                <div class="card-body">
-                    <h5 class="card-title">Expert Team</h5>
-                    <p class="card-text">Our team consists of experienced professionals dedicated to your success.</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4 mt-2">
-            <div class="card text-center">
-                <div class="card-body">
-                    <h5 class="card-title">Affordable Pricing</h5>
-                    <p class="card-text">We offer competitive pricing without compromising quality.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
-     <div class="col-lg-7 p-3 p-lg-5 pt-lg-3"> 
-       
-       
-        <h1 class="display-4 fw-bold lh-1 text-body-emphasis">Why ❓ Leading Brands Choose Us</h1> 
-        <p class="lead">Leading brands trust us because of our proven track record, unwavering commitment to quality, and consistent delivery of exceptional results </p>
-       <p> 
-        <div>
-        <h2>   <svg xmlns="http://www.w3.org/2000/svg" height="30" fill="currentColor" class="bi bi-check2-circle"
-              viewBox="0 0 16 16">
-<path
-                d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0z" />
-<path
-                d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l7-7z" />
-</svg>  Strategic Thinking</h2>
-            <p>Develops tailored strategies that drive growth and achieve your goals</p>
-        </div>
-     
- <div>
-        <h2>   <svg xmlns="http://www.w3.org/2000/svg" height="30" fill="currentColor" class="bi bi-check2-circle"
-              viewBox="0 0 16 16">
-<path
-                d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0z" />
-<path
-                d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l7-7z" />
-</svg>  24/7 Support</h2>
-            <p>We are here when you need us. Our 24/7 support ensures you're never alone. we provide constant assistance, rapid response times, and proactive communication, so you can always count on us.</p>
-        </div>
-     
-
-    </p>
-       
-        <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3"> 
-            <button type="button" class="btn btn-dark btn-lg px-2 me-md-2 fw-bold"><a class="btn btn-lg btn-warning" href="https://wa.me/message/BXPFJE3YCBVXF1">  Start Your Project</a> </button> 
-            <button type="button" class="btn btn-outline-warning btn-lg px-4">Default</button> 
-        </div> 
-    </div> 
-    <div class="col-lg-4 offset-lg-1 p-0 overflow-hidden shadow-lg">
-         <img class="rounded-lg-3" src="./img/illustration-14.webp" alt="illustration-14" width="720"> 
-        </div>
-     </div>
-
-
-</div> 
-
-
-<div class="px-4 py-5 my-5 text-center"> 
-    <img class="d-block mx-auto mb-4" src="./img/luca-bravo-9l_326FISzk-unsplash (1).jpg" alt="" width="72" height="57" style="border-radius: 5px;"> 
-    <h1 class="display-5 fw-bold text-body-emphasis">Ready to Join Our Mission?</h1>
-     <div class="col-lg-6 mx-auto"> 
-        <p class="lead mb-4">Whether it's a new project, a creative challenge, or just brainstorming, we are here to help you every step of the way. Let's build something amazing together!</p>
-        
-        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center"> 
-            <a href="./myworks.html"><button type="button" class="btn btn-warning btn-lg px-4 gap-3"> View Our Works</button></a> 
-        <a href="./about.html" >  <button type="button" class="btn btn-outline-warning btn-lg px-4">Learn Our Culture</button> </a> 
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="./misc-16.webp" class="d-block w-100" alt="Feature Image">
+          <div class="carousel-caption text-start" data-animate>
+            <h3 class="text-white">Crafting <span class="text-warning">Tomorrow's</span> <br>Web, <span class="text-body-secondary">Today.</span></h3>
+            <p class="text-white">We create the most beautiful websites around the world. Customize websites designed to grow your brand.</p>
+            <a class="btn btn-primary btn-glow" href="https://wa.me/message/BXPFJE3YCBVXF1">Sign up today</a>
           </div>
-     </div> 
+        </div>
+
+        <div class="carousel-item">
+          <img src="./img/sean-pollock-PhYq704ffdA-unsplash.jpg" class="d-block w-100" alt="Feature Image">
+          <div class="carousel-caption text-start" data-animate>
+            <h3 class="text-warning">FutureCraft</h3>
+            <p class="text-white">We create innovative digital solutions that drive growth and elevate your brand. From web development to digital marketing, we are your partners in digital transformation.</p>
+            <a class="btn btn-warning btn-glow" href="./about.html">Learn more</a>
+          </div>
+        </div>
+
+        <div class="carousel-item">
+          <img src="./about-square-8.webp" class="d-block w-100" alt="Feature Image">
+          <div class="carousel-caption text-start" data-animate>
+            <h3 class="text-warning">Build your business website with us</h3>
+            <p class="text-white">We are passionate web developers with a mission to help individuals, brands, and businesses bring their ideas to life online.</p>
+            <a class="btn btn-warning btn-glow" href="./Services.html">Our service</a>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
     </div>
+  </section>
 
-</section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!--contact-->
-<section >
-
- <div class="mt-4 container">
-  <div class="container marketing"> 
-    <!-- Three columns of text below the carousel --> 
-     <div class="row"> 
-     
-     <div class="col-lg-4"> 
-      <img src="./img/whatsapp.jpg" aria-label="Placeholder" class="bd-placeholder-img rounded-circle" height="140" preserveAspectRatio="xMidYMid slice" role="img" width="140" ><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-color)"></rect></svg>
-       <h2 class="fw-normal">📞Contact Us</h2>
-        <p class="mt-4">Soluyi, Gbagada Lagos State, Nigeria.</p>
-    <p class="mb-2">📞 +2348157873369</p>
-    <p class="text-4xl font-bold mb-4">Email : fcraft606@gmail.com</p>
-  
-        <p><a class="btn btn-warning" href="https://wa.me/message/BXPFJE3YCBVXF1">Chat on WhatsApp »</a></p>
-       
-      </div><!-- /.col-lg-4 -->
-        <div class="col-lg-4"> 
-          <img src="./img/about-9.webp"  aria-label="Placeholder" class="bd-placeholder-img rounded-circle" height="140" preserveAspectRatio="xMidYMid slice" role="img" width="140" ><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-color)"></rect></svg> 
-          <h2 class="fw-normal">Working Hour</h2> 
-          <p>We're delighted to welcome you! We open our doors at 8:00 A.m. each morning and continue sering until 10:00 P.m. every night</p> 
-          <p>Join us from Monday through Saturday for a delightful dining</p>
-          <p><a class="btn btn-warning" href="#">View details »</a></p>
-         </div><!-- /.col-lg-4 --> 
-       </div>
-
-</section>
-
-
-
-    
-
-
-<!--testimonial-->
-
-
-
- <section class="bg-yellow-50 py-16 px-6">
-    <h2 class="text-3xl font-bold text-center text-yellow-600 mb-10" data-aos="fade-up">What Our Customers Say</h2>
-    <div class="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
-      <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition" data-aos="fade-up">
-        <p class="italic text-secondary">FutureCraft transformed our online presence with a stunning website and effective SEO strategies. Our traffic and sales have grown noticeably!★★★★☆</p>
-        
-        <p class="mt-4 fw-bold text-warning">⭐⭐⭐⭐⭐ - Adebayo S., Business Owner</p>
+  <!-- Stats -->
+  <section class="container my-5">
+    <div class="row g-4">
+      <div class="col-md-4" data-animate>
+        <div class="stat-card">
+          <div class="stat-number" data-count="120" data-animate>0</div>
+          <p class="mb-0">Websites delivered</p>
+        </div>
       </div>
-      <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition" data-aos="fade-up" data-aos-delay="200">
-        <p class="italic text-secondary">Their graphics design team delivered creative visuals that matched our brand perfectly. Communication was fast and professional throughout.
-★★★★☆</p>
-        <p class="mt-4 fw-bold text-warning">⭐⭐⭐⭐⭐ - Grace E., Marketing Lead</p>
+      <div class="col-md-4" data-animate>
+        <div class="stat-card">
+          <div class="stat-number" data-count="38" data-animate>0</div>
+          <p class="mb-0">Brand identities crafted</p>
+        </div>
       </div>
-      <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition" data-aos="fade-up" data-aos-delay="400">
-        <p class="italic text-secondary">We saw a significant boost in search rankings after FutureCraft optimized our site. Highly recommend for web and SEO solutions!
-★★★★★</p>
-        <p class="mt-4 fw-bold text-warning">⭐⭐⭐⭐⭐ - Tunde O., Entrepreneur</p>
+      <div class="col-md-4" data-animate>
+        <div class="stat-card">
+          <div class="stat-number" data-count="12" data-animate>0</div>
+          <p class="mb-0">Industries served</p>
+        </div>
       </div>
     </div>
   </section>
 
+  <!-- About -->
+  <section id="services">
+    <div class="container px-4 pt-5 my-5 text-center border-bottom">
+      <h1 class="display-4 fw-bold text-body-emphasis section-title">About Us</h1>
+      <div class="col-lg-6 mx-auto">
+        <p class="lead mb-4">With years of hands-on experience in website design and development, we specialize in creating fast, modern, and mobile-friendly websites that do not just look good, they perform. Every project we take on is a collaboration, crafted with care, precision, and a forward-thinking mindset.</p>
+        <p>Whether you need a personal portfolio, a business landing page, or a full-featured site, we are here to turn your vision into reality.</p>
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
+          <a class="btn btn-warning btn-lg px-4 me-sm-3 btn-glow" href="https://wa.me/message/BXPFJE3YCBVXF1">Chat Us on WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Services -->
+  <section>
+    <div class="container mb-2">
+      <div class="p-5 text-center bg-body-tertiary rounded-3 shadow-soft">
+        <h1 class="text-body-emphasis section-title">Our Service</h1>
+        <p class="lead">At FutureCraft, we provide personalized web development and design services that bring your ideas to life online. Whether you are just starting out or looking to upgrade your digital presence, we have you covered.</p>
+      </div>
+
+      <div class="container mt-2">
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+          <div class="col" data-animate>
+            <div class="card h-100">
+              <img src="./img/web.jpg" class="card-img-top" alt="web design">
+              <div class="card-body">
+                <h5 class="card-title text-warning">Web Design & Development</h5>
+                <p class="card-text">Beautiful, fast, modern websites built with clean code and responsive layouts, fully tailored to your brand and vision.</p>
+              </div>
+              <div class="card-footer">
+                <small class="text-body-secondary">Last updated 3 mins ago</small>
+              </div>
+            </div>
+          </div>
+          <div class="col" data-animate>
+            <div class="card h-100">
+              <img src="./img/UX.Ul.jpg" class="card-img-top" alt="ux design">
+              <div class="card-body">
+                <h5 class="card-title text-warning">UI/UX Design</h5>
+                <p class="card-text">We design user interfaces and experiences. Our services include user research, wireframing, prototyping, and visual design.</p>
+              </div>
+              <div class="card-footer">
+                <small class="text-body-secondary">Last updated 3 mins ago</small>
+              </div>
+            </div>
+          </div>
+          <div class="col" data-animate>
+            <div class="card h-100">
+              <img src="./img/brand.jpg" class="card-img-top" alt="brand identity">
+              <div class="card-body">
+                <h5 class="card-title text-warning">Brand Identity Design</h5>
+                <p class="card-text">We create brand identities that include logo design, color palettes, typography, and brand guidelines.</p>
+              </div>
+              <div class="card-footer">
+                <small class="text-body-secondary">Last updated 3 mins ago</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container mt-3">
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+          <div class="col" data-animate>
+            <div class="card h-100">
+              <img src="./img/landpage.jpg" class="card-img-top" alt="landing page">
+              <div class="card-body">
+                <h5 class="card-title text-warning">Landing Pages</h5>
+                <p class="card-text">We design and build landing pages that include compelling headlines, clear calls to action, and optimized forms.</p>
+              </div>
+              <div class="card-footer">
+                <small class="text-body-secondary">Last updated 3 mins ago</small>
+              </div>
+            </div>
+          </div>
+          <div class="col" data-animate>
+            <div class="card h-100">
+              <img src="./img/webmeantin.jpg" class="card-img-top" alt="website maintenance">
+              <div class="card-body">
+                <h5 class="card-title text-warning">Website Maintenance</h5>
+                <p class="card-text">We handle security updates, backups, content updates, and performance optimization so your site stays secure and fast.</p>
+              </div>
+              <div class="card-footer">
+                <small class="text-body-secondary">Last updated 3 mins ago</small>
+              </div>
+            </div>
+          </div>
+          <div class="col" data-animate>
+            <div class="card h-100">
+              <img src="./img/proto.jpg" class="card-img-top" alt="portfolio design">
+              <div class="card-body">
+                <h5 class="card-title text-warning">Portfolio & Business Sites</h5>
+                <p class="card-text">Custom portfolios for creatives, or professional websites for small businesses and entrepreneurs.</p>
+              </div>
+              <div class="card-footer">
+                <small class="text-body-secondary">Last updated 3 mins ago</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Projects -->
+  <section class="container my-5" id="portfolio">
+    <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-4">
+      <div data-animate>
+        <h2 class="display-6 fw-bold section-title">Featured Projects</h2>
+        <p class="text-secondary">A quick look at the kinds of experiences we have been crafting for our clients.</p>
+      </div>
+      <a class="btn btn-outline-warning btn-lg" href="./myworks.html">View Full Portfolio</a>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-4" data-animate>
+        <div class="card portfolio-card h-100">
+          <img src="./img/Nonyvee-Beauty_Home.png" class="card-img-top" alt="Nonyvee Beauty">
+          <div class="card-body">
+            <h5 class="card-title text-warning">Nonyvee Beauty</h5>
+            <p class="card-text">Luxury beauty brand site with warm storytelling, service highlights, and booking prompts.</p>
+            <div class="mb-3">
+              <span class="tag">Beauty</span>
+              <span class="tag">Branding</span>
+              <span class="tag">Booking</span>
+            </div>
+            <a class="btn btn-warning btn-sm" href="https://futureareavailable743.github.io/nonyvee-beauty.ng/">Visit site</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4" data-animate>
+        <div class="card portfolio-card h-100">
+          <img src="./Screenshot 2025-10-10 011348.png" class="card-img-top" alt="African Nigerian Restaurant">
+          <div class="card-body">
+            <h5 class="card-title text-warning">African Nigerian Restaurant</h5>
+            <p class="card-text">A bold food brand identity with menu highlights, local storytelling, and ordering flows.</p>
+            <div class="mb-3">
+              <span class="tag">Restaurant</span>
+              <span class="tag">Local SEO</span>
+              <span class="tag">Menu</span>
+            </div>
+            <a class="btn btn-warning btn-sm" href="https://africannigerianrestaurant.com/">Visit site</a>
+          </div>
+        </div>
+      </div>
 
 
- <!-- FOOTER --> 
-<hr class="featurette-divider"> 
-
-
-            <footer class="container"> <p class="float-end"><a href="#">Back to top</a></p> 
-              <p class="text-warning">@FutureCraft · <a href="#">Privacy</a> · <a href="#">Terms</a></p> </footer> 
-   
-
-<div class="container bg-dark text-white">
-   <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 border-top"> 
-    <div class="col mb-3">
-       <a href="/" class="d-flex align-items-center mb-3 link-body-emphasis text-decoration-none" aria-label="Bootstrap">
-         <img src="./img/luca-bravo-9l_326FISzk-unsplash (1).jpg" class="bi me-2" width="40" height="32" aria-hidden="true" style="border-radius: 5px;"></svg> </a> 
-         <p class="text-warning font-bold">FUTURECRAFT</p>
-        </div> <div class="col mb-3"></div>
-         <div class="col mb-3"> 
-          <h5>Section</h5> 
-          <ul class="nav flex-column">
-             <li class="nav-item mb-2">
-              <a href="./index.html" class="nav-link p-0  text-white">Home</a></li> 
-              <li class="nav-item mb-2">
-                <a href="./Services.html" class="nav-link p-0 text-white">Features</a>
-              </li> 
-              <li class="nav-item mb-2">
-                <a href="https://wa.me/message/BXPFJE3YCBVXF1" class="nav-link p-0 text-white">contact</a></li> 
-                <li class="nav-item mb-2">
-                  <a href="./FAQs.html" class="nav-link p-0 text-white">FAQs</a></li>
-                   <li class="nav-item mb-2"><a href="./about.html" class="nav-link p-0 text-white">About</a></li>
-                   </ul> </div> <div class="col mb-3"> <h5>Section</h5> 
-                    <ul class="nav flex-column"> <li class="nav-item mb-2"><a href="./index.html" class="nav-link p-0 text-body-secondary">Home</a></li> 
-                      <li class="nav-item mb-2"><a href="./Services.html" class="nav-link p-0 text-white">Features</a></li> <li class="nav-item mb-2">
-                        <a href="https://wa.me/message/BXPFJE3YCBVXF1" class="nav-link p-0 text-white">contact</a></li>
-                         <li class="nav-item mb-2"><a href="./FAQs.html" class="nav-link p-0 text-white">FAQs</a></li> 
-                         <li class="nav-item mb-2"><a href="./about.html" class="nav-link p-0 text-white">About</a></li>
-                         </ul> </div> <div class="col mb-3"> 
-                          <h5>Section</h5>
-                           <ul class="nav flex-column"> 
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">Home</a></li> <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">Features</a></li> <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">contact</a></li> <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">FAQs</a></li> <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About</a></li> </ul> </div> </footer> </div>
-
-
-      </section>
+<div class="row g-4">
+      <div class="col-md-4" data-animate>
+        <div class="card portfolio-card h-100">
+          <img src="./img/Screenshot 2026-03-17 084210.png" class="card-img-top" alt="Nonyvee Beauty">
+          <div class="card-body">
+            <h5 class="card-title text-warning">Friends2go</h5>
+            <p class="card-text">Supporting mental wellness in Black communities across North America. We're a non-profit offering mental health resources, therapy tools, and community support.
+            </p>
+            <div class="mb-3">
+              <span class="tag">Therapy</span>
+              <span class="tag">Community</span>
+              <span class="tag">Resources</span>
+            </div>
+            <a class="btn btn-warning btn-sm" href="https://www.friends2go.ca/">Visit site</a>
+          </div>
+        </div>
+      </div>
 
 
 
 
 
+      <div class="col-md-4" data-animate>
+        <div class="card portfolio-card h-100">
+          <img src="./img/ssfcraft.png" class="card-img-top" alt="FutureCraft">
+          <div class="card-body">
+            <h5 class="card-title text-warning">FutureCraft</h5>
+            <p class="card-text">Your flagship studio site showcasing services, testimonials, and conversion-focused CTAs.</p>
+            <div class="mb-3">
+              <span class="tag">Studio</span>
+              <span class="tag">Landing</span>
+              <span class="tag">Conversion</span>
+            </div>
+            <a class="btn btn-warning btn-sm" href="./myworks.html">See more</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
- <a href="https://wa.me/message/BXPFJE3YCBVXF1" class="floating-whatsapp" target="_blank">
-            <img class="img"  src="./img/whatsapp.jpg" alt="WhatsApp">
+  <!-- Ready -->
+  <section>
+    <div class="container my-5">
+      <div class="position-relative p-5 text-center text-muted bg-body border border-dashed rounded-5 shadow-soft" data-animate>
+        <button type="button" class="position-absolute top-0 end-0 p-3 m-3 btn-close bg-secondary bg-opacity-10 rounded-pill" aria-label="Close"></button>
+        <h1 class="text-body-emphasis">Ready to Transform Your Digital Presence?</h1>
+        <p class="col-lg-6 mx-auto mb-4">Let us discuss your project and create something amazing together.</p>
+        <p><a class="btn btn-lg btn-warning btn-glow" href="https://wa.me/message/BXPFJE3YCBVXF1">Get Started Today</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Us -->
+  <section>
+    <div class="container">
+      <div class="container mt-5 mb-4">
+        <h2 class="text-center mb-4 section-title">Why Us</h2>
+        <div class="row">
+          <div class="col-md-4" data-animate>
+            <div class="card text-center">
+              <div class="card-body">
+                <h5 class="card-title">Quality Service</h5>
+                <p class="card-text">We provide top-notch services tailored to your needs.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 mt-2" data-animate>
+            <div class="card text-center">
+              <div class="card-body">
+                <h5 class="card-title">Expert Team</h5>
+                <p class="card-text">Our team consists of experienced professionals dedicated to your success.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mt-2" data-animate>
+            <div class="card text-center">
+              <div class="card-body">
+                <h5 class="card-title">Affordable Pricing</h5>
+                <p class="card-text">We offer competitive pricing without compromising quality.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg" data-animate>
+        <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
+          <h1 class="display-4 fw-bold lh-1 text-body-emphasis">Why Leading Brands Choose Us</h1>
+          <p class="lead">Leading brands trust us because of our proven track record, unwavering commitment to quality, and consistent delivery of exceptional results.</p>
+
+          <div>
+            <h2 class="h4"><svg xmlns="http://www.w3.org/2000/svg" height="30" fill="currentColor" class="bi bi-check2-circle" viewBox="0 0 16 16"><path d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0z"/><path d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l7-7z"/></svg> Strategic Thinking</h2>
+            <p>Develops tailored strategies that drive growth and achieve your goals.</p>
+          </div>
+
+          <div>
+            <h2 class="h4"><svg xmlns="http://www.w3.org/2000/svg" height="30" fill="currentColor" class="bi bi-check2-circle" viewBox="0 0 16 16"><path d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0z"/><path d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l7-7z"/></svg> 24/7 Support</h2>
+            <p>We are here when you need us. Our 24/7 support ensures you are never alone with proactive communication and fast response times.</p>
+          </div>
+
+          <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
+            <a class="btn btn-lg btn-warning btn-glow" href="https://wa.me/message/BXPFJE3YCBVXF1">Start Your Project</a>
+            <a class="btn btn-outline-warning btn-lg" href="./myworks.html">See Portfolio</a>
+          </div>
+        </div>
+        <div class="col-lg-4 offset-lg-1 p-0 overflow-hidden shadow-lg">
+          <img class="rounded-lg-3" src="./img/illustration-14.webp" alt="illustration-14" width="720">
+        </div>
+      </div>
+    </div>
+
+    <div class="px-4 py-5 my-5 text-center" data-animate>
+      <img class="d-block mx-auto mb-4" src="./img/luca-bravo-9l_326FISzk-unsplash (1).jpg" alt="" width="72" height="57" style="border-radius: 5px;">
+      <h1 class="display-5 fw-bold text-body-emphasis">Ready to Join Our Mission?</h1>
+      <div class="col-lg-6 mx-auto">
+        <p class="lead mb-4">Whether it is a new project, a creative challenge, or just brainstorming, we are here to help you every step of the way. Let us build something amazing together.</p>
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+          <a href="./myworks.html" class="btn btn-warning btn-lg px-4 gap-3">View Our Works</a>
+          <a href="./about.html" class="btn btn-outline-warning btn-lg px-4">Learn Our Culture</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Contact -->
+  <section>
+    <div class="mt-4 container">
+      <div class="container marketing">
+        <div class="row">
+          <div class="col-lg-4" data-animate>
+            <img src="./img/whatsapp.jpg" aria-label="Placeholder" class="bd-placeholder-img rounded-circle" height="140" role="img" width="140">
+            <h2 class="fw-normal">Contact Us</h2>
+            <p class="mt-4">Soluyi, Gbagada Lagos State, Nigeria.</p>
+            <p class="mb-2">+2348157873369</p>
+            <p class=" fw-bold mb-4">Email : fcraft606@gmail.com</p>
+            <p><a class="btn btn-warning" href="https://wa.me/message/BXPFJE3YCBVXF1">Chat on WhatsApp</a></p>
+          </div>
+          <div class="col-lg-4" data-animate>
+            <img src="./img/about-9.webp" aria-label="Placeholder" class="bd-placeholder-img rounded-circle" height="140" role="img" width="140">
+            <h2 class="fw-normal">Working Hour</h2>
+            <p>We are delighted to welcome you. We open our doors at 8:00 A.M. each morning and continue serving until 10:00 P.M. every night.</p>
+            <p>Join us from Monday through Saturday for a delightful dining.</p>
+            <p><a class="btn btn-warning" href="#">View details</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonial -->
+  <section class="bg-yellow-50 py-5 px-4">
+    <h2 class="text-3xl fw-bold text-center text-yellow-600 mb-4" data-animate>What Our Customers Say</h2>
+    <div class="row g-4 max-w-7xl mx-auto">
+      <div class="col-md-4" data-animate>
+        <div class="bg-body p-4 rounded-3 shadow-soft">
+          <p class="fst-italic text-secondary">FutureCraft transformed our online presence with a stunning website and effective SEO strategies. Our traffic and sales have grown noticeably.</p>
+          <p class="mt-4 fw-bold text-warning">- Adebayo S., Business Owner</p>
+        </div>
+      </div>
+      <div class="col-md-4" data-animate>
+        <div class="bg-body p-4 rounded-3 shadow-soft">
+          <p class="fst-italic text-secondary">Their graphics design team delivered creative visuals that matched our brand perfectly. Communication was fast and professional throughout.</p>
+          <p class="mt-4 fw-bold text-warning">- Grace E., Marketing Lead</p>
+        </div>
+      </div>
+      <div class="col-md-4" data-animate>
+        <div class="bg-body p-4 rounded-3 shadow-soft">
+          <p class="fst-italic text-secondary">We saw a significant boost in search rankings after FutureCraft optimized our site. Highly recommend for web and SEO solutions.</p>
+          <p class="mt-4 fw-bold text-warning">- Tunde O., Entrepreneur</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <hr class="featurette-divider">
+  <footer class="container">
+    <p class="float-end"><a href="#">Back to top</a></p>
+    <p class="text-warning">@FutureCraft - <a href="#">Privacy</a> - <a href="#">Terms</a></p>
+  </footer>
+
+  <div class="container bg-dark text-white">
+    <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 border-top">
+      <div class="col mb-3">
+        <a href="/" class="d-flex align-items-center mb-3 link-body-emphasis text-decoration-none" aria-label="Bootstrap">
+          <img src="./img/luca-bravo-9l_326FISzk-unsplash (1).jpg" class="bi me-2" width="40" height="32" aria-hidden="true" style="border-radius: 5px;">
         </a>
-        <a href="https://www.instagram.com/futurecraft.dev/" class="floating-instagram" target="_blank">
-            <img class="img" src="./img/IG.jpg" alt="Instagram" >
-        </a>
+        <p class="text-warning fw-bold">FUTURECRAFT</p>
+      </div>
+      <div class="col mb-3"></div>
+      <div class="col mb-3">
+        <h5>Section</h5>
+        <ul class="nav flex-column">
+          <li class="nav-item mb-2"><a href="./index.html" class="nav-link p-0 text-white">Home</a></li>
+          <li class="nav-item mb-2"><a href="./Services.html" class="nav-link p-0 text-white">Features</a></li>
+          <li class="nav-item mb-2"><a href="https://wa.me/message/BXPFJE3YCBVXF1" class="nav-link p-0 text-white">Contact</a></li>
+          <li class="nav-item mb-2"><a href="./FAQs.html" class="nav-link p-0 text-white">FAQs</a></li>
+          <li class="nav-item mb-2"><a href="./about.html" class="nav-link p-0 text-white">About</a></li>
+        </ul>
+      </div>
+      <div class="col mb-3">
+        <h5>Section</h5>
+        <ul class="nav flex-column">
+          <li class="nav-item mb-2"><a href="./index.html" class="nav-link p-0 text-body-secondary">Home</a></li>
+          <li class="nav-item mb-2"><a href="./Services.html" class="nav-link p-0 text-white">Features</a></li>
+          <li class="nav-item mb-2"><a href="https://wa.me/message/BXPFJE3YCBVXF1" class="nav-link p-0 text-white">Contact</a></li>
+          <li class="nav-item mb-2"><a href="./FAQs.html" class="nav-link p-0 text-white">FAQs</a></li>
+          <li class="nav-item mb-2"><a href="./about.html" class="nav-link p-0 text-white">About</a></li>
+        </ul>
+      </div>
+      <div class="col mb-3">
+        <h5>Section</h5>
+        <ul class="nav flex-column">
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">Home</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">Features</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">Contact</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">FAQs</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About</a></li>
+        </ul>
+      </div>
+    </footer>
+  </div>
 
+  <a href="https://wa.me/message/BXPFJE3YCBVXF1" class="floating-whatsapp" target="_blank">
+    <img class="img" src="./img/whatsapp.jpg" alt="WhatsApp">
+  </a>
+  <a href="https://www.instagram.com/futurecraft.dev/" class="floating-instagram" target="_blank">
+    <img class="img" src="./img/IG.jpg" alt="Instagram">
+  </a>
 
-
-
-<script src="script.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-
+  <script src="script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
+
 </html>
