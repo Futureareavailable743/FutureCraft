@@ -34,36 +34,54 @@
     }
 
     .navbar {
-      background: rgba(10, 12, 18, 0.86) !important;
-      backdrop-filter: blur(12px);
-      transition: box-shadow 0.3s ease, background 0.3s ease;
-      padding: 0.9rem 0;
+      background: transparent !important;
+      backdrop-filter: none;
+      transition: box-shadow 0.3s ease, background 0.3s ease, transform 0.3s ease;
+      padding: 1rem 0;
+    }
+
+    .navbar .container {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      position: relative;
     }
 
     .navbar.nav-scrolled {
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+      transform: translateY(-2px);
     }
 
     .navbar-brand {
       display: inline-flex;
       align-items: center;
-      gap: 0.75rem;
-      font-size: 1.1rem;
+      gap: 0.85rem;
+      font-size: 1.08rem;
       font-weight: 700;
-      letter-spacing: 0.03em;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      position: relative;
+      z-index: 1;
+    }
+
+    .navbar-brand span {
+      color: #fff3cf;
+      text-shadow: 0 0 18px rgba(246, 195, 67, 0.18);
     }
 
     .navbar-brand img {
-      width: 42px;
-      height: 42px;
+      width: 46px;
+      height: 46px;
       object-fit: cover;
       border-radius: 50%;
-      border: 2px solid rgba(246, 195, 67, 0.45);
+      border: 2px solid rgba(246, 195, 67, 0.55);
+      box-shadow: 0 0 0 6px rgba(246, 195, 67, 0.08);
     }
 
     .navbar-toggler {
       border-color: rgba(255, 255, 255, 0.2);
       padding: 0.5rem 0.7rem;
+      position: relative;
+      z-index: 1;
     }
 
     .navbar-nav {
@@ -78,25 +96,103 @@
     }
 
     .nav-link {
-      color: rgba(255, 255, 255, 0.82) !important;
+      color: rgba(255, 248, 230, 0.84) !important;
       font-weight: 600;
+      letter-spacing: 0.02em;
       padding: 0.55rem 0.95rem !important;
       border-radius: 999px;
-      transition: background-color 0.25s ease, color 0.25s ease;
+      transition: background-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
     }
 
     .nav-link:hover,
     .nav-link:focus,
     .nav-link.active {
       color: #111 !important;
-      background: var(--fc-gold);
+      background: linear-gradient(135deg, #ffd36d, #f6c343);
+      box-shadow: 0 10px 24px rgba(246, 195, 67, 0.26);
+      transform: translateY(-1px);
     }
 
     .btn-contact {
       border-radius: 999px;
-      padding: 0.65rem 1.1rem;
+      padding: 0.75rem 1.2rem;
       font-weight: 700;
       white-space: nowrap;
+      border: 0;
+      background: linear-gradient(135deg, #ffd978, #f6c343 55%, #d79f21);
+      color: #111;
+      box-shadow: 0 14px 30px rgba(215, 159, 33, 0.28);
+      transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+    }
+
+    .btn-contact:hover,
+    .btn-contact:focus {
+      transform: translateY(-1px);
+      box-shadow: 0 18px 34px rgba(215, 159, 33, 0.34);
+      filter: brightness(1.03);
+    }
+
+    @media (min-width: 992px) {
+      .navbar .container {
+        padding: 0.7rem 0.8rem 0.7rem 1.1rem;
+        border-radius: 28px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        background: linear-gradient(180deg, rgba(18, 22, 34, 0.92), rgba(7, 9, 14, 0.8));
+        box-shadow: 0 20px 46px rgba(0, 0, 0, 0.34);
+        overflow: hidden;
+      }
+
+      .navbar .container::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        background: linear-gradient(90deg, rgba(246, 195, 67, 0.14), transparent 24%, transparent 76%, rgba(246, 195, 67, 0.1));
+        pointer-events: none;
+      }
+
+      .navbar .container::after {
+        content: "";
+        position: absolute;
+        left: 1.2rem;
+        right: 1.2rem;
+        top: 0;
+        height: 1px;
+        background: linear-gradient(90deg, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0.02));
+        pointer-events: none;
+      }
+
+      .navbar-collapse {
+        display: flex !important;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        flex: 1 1 auto;
+      }
+
+      .navbar-nav {
+        margin: 0 auto;
+        padding: 0.4rem;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.035);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+        gap: 0.2rem;
+        position: relative;
+        z-index: 1;
+      }
+
+      .nav-link {
+        padding: 0.72rem 1.05rem !important;
+        font-size: 0.95rem;
+      }
+
+      .navbar-actions {
+        margin-left: 0;
+        flex-shrink: 0;
+        position: relative;
+        z-index: 1;
+      }
     }
 
     .hero-panel,
@@ -273,8 +369,179 @@
     }
 
     .footer-shell {
-      background: rgba(10, 12, 18, 0.94);
+      position: relative;
+      margin-top: 5rem;
+      padding: 2rem 0 1.25rem;
+      background:
+        radial-gradient(circle at top left, rgba(246, 195, 67, 0.14), transparent 30%),
+        linear-gradient(180deg, rgba(8, 10, 16, 0.96), rgba(5, 7, 12, 0.98));
       border-top: 1px solid rgba(255, 255, 255, 0.08);
+      overflow: hidden;
+    }
+
+    .footer-shell::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(255, 255, 255, 0.03), transparent 22%, transparent 78%, rgba(246, 195, 67, 0.05));
+      pointer-events: none;
+    }
+
+    .footer-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) repeat(2, minmax(0, 0.8fr)) minmax(0, 1fr);
+      gap: 1.25rem;
+      align-items: stretch;
+    }
+
+    .footer-brand-panel,
+    .footer-links,
+    .footer-contact {
+      border-radius: 1.4rem;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.035);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    }
+
+    .footer-brand-panel {
+      padding: 1.6rem;
+    }
+
+    .footer-mini {
+      margin-top: 1.3rem;
+      padding: 1rem 1.05rem;
+      border-radius: 1.1rem;
+      background: linear-gradient(135deg, rgba(246, 195, 67, 0.14), rgba(255, 255, 255, 0.03));
+      border: 1px solid rgba(246, 195, 67, 0.18);
+    }
+
+    .footer-mini p {
+      margin: 0 0 0.85rem;
+      color: rgba(255, 255, 255, 0.78);
+      font-size: 0.94rem;
+    }
+
+    .footer-mini .btn {
+      border-radius: 999px;
+    }
+
+    .footer-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      margin-bottom: 1rem;
+      padding: 0.35rem 0.8rem;
+      border-radius: 999px;
+      background: rgba(246, 195, 67, 0.12);
+      color: #ffe39a;
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .footer-title {
+      margin: 0.35rem 0 0.85rem;
+      font-size: clamp(1.4rem, 2vw, 2rem);
+      line-height: 1.05;
+      color: #fff7de;
+    }
+
+    .footer-copy,
+    .footer-contact p,
+    .footer-bottom {
+      color: rgba(255, 255, 255, 0.72);
+    }
+
+    .footer-links,
+    .footer-contact {
+      padding: 1.35rem 1.25rem;
+    }
+
+    .footer-label {
+      margin-bottom: 0.9rem;
+      color: #fff2c7;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .footer-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .footer-list li + li {
+      margin-top: 0.7rem;
+    }
+
+    .footer-link,
+    .footer-contact a,
+    .footer-bottom a {
+      color: rgba(255, 255, 255, 0.88);
+      text-decoration: none;
+      transition: color 0.25s ease, opacity 0.25s ease;
+    }
+
+    .footer-link:hover,
+    .footer-contact a:hover,
+    .footer-bottom a:hover {
+      color: var(--fc-gold);
+    }
+
+    .footer-contact strong {
+      display: block;
+      margin-bottom: 0.18rem;
+      color: #fff;
+      font-size: 0.95rem;
+    }
+
+    .footer-contact p {
+      margin-bottom: 1rem;
+    }
+
+    .footer-contact p:last-child {
+      margin-bottom: 0;
+    }
+
+    .footer-contact-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.8rem;
+    }
+
+    .footer-contact-icon {
+      width: 2.4rem;
+      height: 2.4rem;
+      flex: 0 0 2.4rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 0.85rem;
+      background: rgba(246, 195, 67, 0.12);
+      color: #ffd978;
+    }
+
+    .footer-bottom {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 1.25rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      font-size: 0.92rem;
+    }
+
+    .footer-bottom-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
     }
 
     @media (max-width: 991.98px) {
@@ -305,6 +572,15 @@
     }
 
     @media (max-width: 768px) {
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
       body {
         padding-top: 82px;
       }
@@ -426,7 +702,7 @@
 
         <div class="col-md-6 col-xl-4" data-category="nonprofit" data-animate>
           <div class="card work-card">
-            <img src="./img/frds.png" class="card-img-top" alt="Friends2go">
+            <img src="./img/ss.png" class="card-img-top" alt="Friends2go">
             <div class="card-body">
               <h5 class="card-title text-warning">Friends2go</h5>
               <p class="card-text">A nonprofit platform supporting mental wellness in Black communities across North America with resources, tools, and support access.</p>
@@ -495,37 +771,60 @@
     </section>
   </main>
 
-  <footer class="footer-shell mt-5">
-    <div class="container py-5">
-      <div class="row g-4">
-        <div class="col-lg-4">
+  <footer class="footer-shell">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand-panel">
+          <span class="footer-badge">FutureCraft Studio</span>
           <a href="./index.html" class="d-inline-flex align-items-center gap-3 text-decoration-none mb-3">
-            <img src="./img/luca-bravo-9l_326FISzk-unsplash (1).jpg" width="44" height="36" alt="FutureCraft">
+            <img src="./img/luca-bravo-9l_326FISzk-unsplash (1).jpg" width="48" height="38" alt="FutureCraft">
             <span class="text-warning fw-bold">FUTURECRAFT</span>
           </a>
-          <p class="text-white-50 mb-0">Crafting modern websites, brand experiences, and digital presence for ambitious businesses.</p>
+          <h2 class="footer-title">Modern websites with a sharper brand presence.</h2>
+          <p class="footer-copy mb-0">FutureCraft designs polished websites, landing pages, and brand-led digital experiences for businesses that want to look credible and current online.</p>
+          <div class="footer-mini">
+            <p>Get a quick project direction, timeline, and next-step recommendation without the usual back-and-forth.</p>
+            <a class="btn btn-warning btn-sm px-3" href="./contact.html">Request a quick brief</a>
+          </div>
         </div>
-        <div class="col-6 col-lg-2">
-          <h5>Explore</h5>
-          <ul class="nav flex-column">
-            <li class="nav-item mb-2"><a href="./index.html" class="nav-link p-0 text-white">Home</a></li>
-            <li class="nav-item mb-2"><a href="./Services.html" class="nav-link p-0 text-white">Services</a></li>
-            <li class="nav-item mb-2"><a href="./myworks.html" class="nav-link p-0 text-white">Portfolio</a></li>
+        <div class="footer-links">
+          <div class="footer-label">Explore</div>
+          <ul class="footer-list">
+            <li><a class="footer-link" href="./index.html">Home</a></li>
+            <li><a class="footer-link" href="./Services.html">Services</a></li>
+            <li><a class="footer-link" href="./myworks.html">Portfolio</a></li>
           </ul>
         </div>
-        <div class="col-6 col-lg-2">
-          <h5>Company</h5>
-          <ul class="nav flex-column">
-            <li class="nav-item mb-2"><a href="./about.html" class="nav-link p-0 text-white">About</a></li>
-            <li class="nav-item mb-2"><a href="./FAQs.html" class="nav-link p-0 text-white">FAQs</a></li>
-            <li class="nav-item mb-2"><a href="./contact.html" class="nav-link p-0 text-white">Contact</a></li>
+        <div class="footer-links">
+          <div class="footer-label">Company</div>
+          <ul class="footer-list">
+            <li><a class="footer-link" href="./about.html">About</a></li>
+            <li><a class="footer-link" href="./FAQs.html">FAQs</a></li>
+            <li><a class="footer-link" href="./contact.html">Contact</a></li>
           </ul>
         </div>
-        <div class="col-lg-4">
-          <h5>Direct Contact</h5>
-          <p class="text-white-50 mb-2">Email: <a class="text-white text-decoration-none" href="mailto:fcraft606@gmail.com">fcraft606@gmail.com</a></p>
-          <p class="text-white-50 mb-2">Phone: <a class="text-white text-decoration-none" href="tel:+2348157873369">+2348157873369</a></p>
-          <p class="text-white-50 mb-0">Location: Soluyi, Gbagada, Lagos State, Nigeria.</p>
+        <div class="footer-contact">
+          <div class="footer-label">Direct Contact</div>
+          <p class="footer-contact-row">
+            <span class="footer-contact-icon">✉</span>
+            <span><strong>Email</strong><a href="mailto:fcraft606@gmail.com">fcraft606@gmail.com</a></span>
+          </p>
+          <p class="footer-contact-row">
+            <span class="footer-contact-icon">☎</span>
+            <span><strong>Phone</strong><a href="tel:+2348157873369">+2348157873369</a></span>
+          </p>
+          <p class="footer-contact-row">
+            <span class="footer-contact-icon">⌂</span>
+            <span><strong>Location</strong>Soluyi, Gbagada, Lagos State, Nigeria.</span>
+          </p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 FutureCraft. Built for brands that want to look ready.</span>
+        <div class="footer-bottom-links">
+          <a href="https://wa.me/message/BXPFJE3YCBVXF1">WhatsApp</a>
+          <a href="https://www.instagram.com/futurecraft.dev/">Instagram</a>
+          <a href="#">Back to top</a>
         </div>
       </div>
     </div>
